@@ -37,7 +37,7 @@ export default function BookPage() {
           <div>
             <h2 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">Book a service</h2>
             <p className="mt-3 text-sm text-ink-soft">
-              Tell us what you need and when. We'll match the right caregiver and confirm by phone.
+              Tell us what you need and when. We'll match the right treatment coordinator and confirm by phone.
             </p>
             <div className="mt-8">
               <ContactForm mode="book" services={serviceOptions} showService showSchedule />

@@ -1,5 +1,7 @@
 // ponytail: dental service catalog. Edit this single file to add/rename/reorder services.
 
+import { content } from "@/lib/content"
+
 export interface Service {
   slug: string;
   name: string;
@@ -11,7 +13,7 @@ export interface Service {
   category: 'adult' | 'kids';
 }
 
-export const services: Service[] = [
+export const services: Service[] = content('SERVICES', [
   // ── ADULT SERVICES ──
   {
     slug: 'root-canal-therapy',
@@ -495,9 +497,9 @@ export const services: Service[] = [
     startingPrice: '₹4,999',
     category: 'kids',
   },
-];
+])
 
-// 22 adult + 9 kids = 31 services total
+// 22 adult + 8 kids = 30 services total
 // Note: 'tooth-colored-fillings-kids' appears only once (kids category).
 // The adult version is not provided since tooth-coloured fillings are primarily
 // associated with paediatric dentistry in the Microsmiles portfolio.

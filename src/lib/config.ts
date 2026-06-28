@@ -1,6 +1,8 @@
 // ponytail: site-wide config. Edit this file or override via env + content.ts
 
-export const site = {
+import { content } from "@/lib/content"
+
+export const site = content('CONFIG', {
   brand: 'Microsmiles Dental Care',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://microsmiles-demo.vercel.app',
   tagline: 'You Smile, We Smile — Painless Dentistry',
@@ -8,7 +10,7 @@ export const site = {
     'Microsmiles Dental Care offers painless dentistry adopted from UK, now in India. Root canal, implants, crowns, braces, invisalign, kids dentistry, and more across Chennai and Bangalore.',
   region: 'India',
   city: 'Chennai',
-  phone: ' ‪+91 90437 53438‬',
+  phone: '+91 90437 53438',
   email: 'microsmilesdental@gmail.com',
   address: 'Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.',
   hours: 'Mon — Sat: 12pm – 8pm (Sunday Off)',
@@ -24,13 +26,13 @@ export const site = {
     topic: process.env.NEXT_PUBLIC_NTFY_TOPIC ?? 'dental-demo-form-x7k9p2',
     feedbackTopic: process.env.NEXT_PUBLIC_NTFY_FEEDBACK_TOPIC ?? 'dental-demo-feedback-x7k9p2',
   },
-};
+})
 
 export function ntfyEndpoint(form: 'contact' | 'book'): string {
   return `${site.ntfy.server}/${site.ntfy.topic}-${form}`;
 }
 
-export const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID ?? 'ChIJX_jYCgA1rDsRcZJs0bnROac';
+export const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID ?? '';
 
 export function googleMapsReviewUrl(): string {
   return `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
