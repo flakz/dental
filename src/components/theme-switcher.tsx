@@ -11,6 +11,7 @@ const themes = [
   { name: "sand", label: "Sand", color: "#8B6F47" },
   { name: "charcoal", label: "Charcoal", color: "#D05A38" },
   { name: "rose", label: "Rose", color: "#B34B58" },
+  { name: "ocean", label: "Ocean", color: "#3887A8" },
 ] as const
 
 // All 6 theme CSS blobs — generated from the theme presets
@@ -86,6 +87,18 @@ const themeCss: Record<string, string> = {
   --paw-border: #E5D2C8; --paw-border-strong: #CDB5A9; --paw-border-on-dark: rgba(245,234,229,0.10);
   --paw-success: #3A7A5C; --paw-warning: #C58A1A; --paw-error: #B23A1A; --paw-info: #2A6B8E;
   --dropdown-outer: #E2CEC4;
+}`,
+  ocean: `:root {
+  --paw-primary: #3887A8; --paw-primary-ink: #FBFAF4; --paw-primary-soft: #B5D4E0; --paw-primary-deep: #1F5C73;
+  --paw-accent: #E8A33D; --paw-accent-ink: #0E1730; --paw-accent-soft: #F5DBA0;
+  --paw-secondary: #5A7A8A; --paw-secondary-ink: #FBFAF4; --paw-secondary-soft: #D0DDE3;
+  --paw-surface: #F0F5F7; --paw-surface-elevated: #FBFAF4; --paw-surface-muted: #DDE8ED;
+  --paw-surface-dark: #0E1F2A; --paw-surface-darker: #080F16;
+  --paw-ink: #0E1F2A; --paw-ink-soft: #2C3E4A; --paw-ink-muted: #4A6070;
+  --paw-ink-on-dark: #E8EFF3; --paw-ink-muted-on-dark: #9BB0BD;
+  --paw-border: #C5D5DD; --paw-border-strong: #A8BFC9; --paw-border-on-dark: rgba(232,239,243,0.10);
+  --paw-success: #3A7A5C; --paw-warning: #CBA645; --paw-error: #B23A1A; --paw-info: #2A6B8E;
+  --dropdown-outer: #D5E2E8;
 }`,
 }
 
