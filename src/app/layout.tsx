@@ -63,7 +63,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           __html: `(function(){
   try {
     var t = localStorage.getItem("paw-theme");
-    if (t && ${JSON.stringify(allThemeCss)}[t]) {
+    if (t === "custom") {
+      var css = localStorage.getItem("paw-custom-css");
+      if (css) document.querySelector("style[data-theme]").textContent = css;
+    } else if (t && ${JSON.stringify(allThemeCss)}[t]) {
       document.querySelector("style[data-theme]").textContent = ${JSON.stringify(allThemeCss)}[t];
     }
   } catch(e){}

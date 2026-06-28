@@ -107,6 +107,7 @@ export function CustomThemePicker({ open, onClose }: CustomThemePickerProps) {
     const css = generateThemeCss({ name: "custom", ...derived } as any)
     localStorage.setItem("paw-custom-colors", JSON.stringify(c))
     localStorage.setItem("paw-theme", "custom")
+    localStorage.setItem("paw-custom-css", css)
     const style = document.querySelector<HTMLStyleElement>("style[data-theme]")
     if (style) style.textContent = css
   }, [])
