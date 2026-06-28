@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+.next/
+out/
+
+# env
+.env
+.env.local
+
+reference-pawside/
+
+# OS / editor
+.DS_Store
+.vscode/
+*.log
+.next
