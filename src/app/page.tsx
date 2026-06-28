@@ -19,6 +19,8 @@ import {
 } from "@/components/shadcncraft/pro-marketing/section-heading"
 import FAQ2 from "@/components/watermelon-ui/faq-2"
 import { CardsParallax } from "@/components/cards-parallax"
+import { motion } from "motion/react"
+import { easeOut } from "@/lib/motion"
 import { Reveal } from "@/components/motion/reveal"
 import { Stagger, StaggerItem } from "@/components/motion/stagger"
 import { HoverLift } from "@/components/motion/hover-lift"
@@ -76,7 +78,7 @@ export default function HomePage() {
               </StaggerItem>
 
               <StaggerItem>
-                <TextEffect per="word" preset="fade-in-blur" as="h1" className="mt-6 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[0.98] tracking-[-0.025em]">
+                <TextEffect per="word" preset="blur" as="h1" className="mt-6 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[0.98] tracking-[-0.025em]">
                   You smile, we smile.
                 </TextEffect>
               </StaggerItem>
@@ -166,7 +168,7 @@ export default function HomePage() {
           ============================================================ */}
       <section className="section-y-sm section-blend">
         <div className="container-page">
-          <Reveal variant="fadeInUp">
+          <Reveal variant="slideBlurUp">
             <SectionHeading alignment="left" className="max-w-3xl">
               <SectionHeadingTagline>What we do</SectionHeadingTagline>
               <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
@@ -240,7 +242,7 @@ export default function HomePage() {
       <section className="section-y-sm section-blend">
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <div className="relative">
-            <Reveal variant="slideInLeft">
+            <Reveal variant="clipReveal">
               <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
                 <div className="p-[6px]">
                   <div className="aspect-[5/6] overflow-hidden rounded-[24px] shadow-sm">
@@ -255,7 +257,7 @@ export default function HomePage() {
                 </div>
               </div>
             </Reveal>
-            <Reveal variant="scaleIn" delay={0.4} className="absolute -bottom-6 -right-6 hidden sm:block">
+            <Reveal variant="popIn" delay={0.5} className="absolute -bottom-6 -right-6 hidden sm:block">
               <div className="rounded-[var(--radius-xl)] bg-surface-elevated p-5 text-foreground shadow-[var(--shadow-lg)]">
                 <p className="font-display text-3xl font-medium leading-none">15+ years</p>
                 <p className="mt-1.5 text-xs text-ink-muted">Of painless dentistry, in {site.city}</p>
@@ -264,7 +266,7 @@ export default function HomePage() {
           </div>
 
           <div>
-            <Reveal variant="fadeInUp">
+            <Reveal variant="blurReveal">
               <p className="eyebrow">Why Microsmiles</p>
               <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
                 Led by specialists, <span className="serif-italic text-primary font-semibold">built for comfort.</span>
@@ -302,7 +304,7 @@ export default function HomePage() {
           ============================================================ */}
       <section className="section-y-sm section-blend">
         <div className="container-page">
-          <Reveal variant="fadeInUp" className="mx-auto max-w-2xl">
+          <Reveal variant="blurReveal" className="mx-auto max-w-2xl">
             <SectionHeading alignment="center">
               <SectionHeadingTagline>How it works</SectionHeadingTagline>
               <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
@@ -311,17 +313,26 @@ export default function HomePage() {
             </SectionHeading>
           </Reveal>
 
-          <Stagger stagger={0.12} className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-xl)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <motion.ol
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-xl)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4"
+          >
             {steps.map((step) => (
-              <StaggerItem key={step.n}>
-                <li className="relative flex flex-col gap-3 bg-surface-elevated p-6 lg:p-7">
-                  <span className="font-display text-3xl font-medium leading-none text-primary">{step.n}</span>
-                  <h3 className="font-display text-lg font-medium leading-tight tracking-tight">{step.title}</h3>
-                  <p className="text-sm leading-relaxed text-ink-soft">{step.body}</p>
-                </li>
-              </StaggerItem>
+              <motion.li
+                key={step.n}
+                variants={{ hidden: { opacity: 0, rotateX: 12, y: 30 }, visible: { opacity: 1, rotateX: 0, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
+                style={{ perspective: 600 }}
+                className="relative flex flex-col gap-3 bg-surface-elevated p-6 lg:p-7"
+              >
+                <span className="font-display text-3xl font-medium leading-none text-primary">{step.n}</span>
+                <h3 className="font-display text-lg font-medium leading-tight tracking-tight">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-ink-soft">{step.body}</p>
+              </motion.li>
             ))}
-          </Stagger>
+          </motion.ol>
         </div>
       </section>
 
@@ -332,7 +343,7 @@ export default function HomePage() {
           ============================================================ */}
       <section className="pt-10">
         <div className="container-page">
-          <Reveal variant="fadeInUp" className="mx-auto mb-12 max-w-3xl text-center">
+          <Reveal variant="riseUp" className="mx-auto mb-12 max-w-3xl text-center">
             <SectionHeading alignment="center">
               <SectionHeadingTagline>Loved by patients</SectionHeadingTagline>
               <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
