@@ -34,7 +34,7 @@ export interface Footer3SocialLink {
 export interface Footer3Props {
   logo?: React.ReactNode;
   brandName?: string;
-  description?: string;
+  description?: React.ReactNode;
   socialLinks?: Footer3SocialLink[];
   linkGroups?: Footer3LinkGroup[];
   copyright?: string;

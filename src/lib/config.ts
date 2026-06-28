@@ -11,7 +11,7 @@ const baseConfig = {
   description:
     'Microsmiles Dental Care offers painless dentistry adopted from UK, now in India. Root canal, implants, crowns, braces, invisalign, kids dentistry, and more across Tamil Nadu.',
   region: 'India',
-  city: 'Chennai',
+  city: 'Tamil Nadu',
   phone: process.env.NEXT_PUBLIC_PHONE ?? '+91 90437 53438',
   email: process.env.NEXT_PUBLIC_EMAIL ?? 'microsmilesdental@gmail.com',
   address: process.env.NEXT_PUBLIC_ADDRESS ?? 'Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.',

@@ -49,7 +49,7 @@ export function Footer() {
         <div className="h-6 w-6" style={{ backgroundColor: "var(--paw-primary, #1B2A4E)", maskImage: "url(/tooth.png)", maskSize: "contain", maskPosition: "center", maskRepeat: "no-repeat", WebkitMaskImage: "url(/tooth.png)", WebkitMaskSize: "contain", WebkitMaskPosition: "center", WebkitMaskRepeat: "no-repeat" }} />
       }
       brandName={site.brand}
-      description={`Painless dentistry across ${site.city}. ${site.hours}`}
+      description={<>Painless dentistry across {site.city}.<br />{site.hours}</>}
       socialLinks={socialLinks}
       linkGroups={linkGroups}
       copyright={`© ${year} ${site.brand}. All rights reserved. Made with care in ${site.city}.`}
