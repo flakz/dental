@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next"
 import { Bricolage_Grotesque } from "next/font/google"
 import { site } from "@/lib/config"
-import { loadTheme, generateThemeCss } from "@/lib/theme"
+import { loadTheme, generateThemeCss, presets } from "@/lib/theme"
+import type { ThemeName } from "@/lib/theme"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import { ThemeSwitcher } from "@/components/theme-switcher"
+import { Preloader } from "@/components/preloader"
 import "./globals.css"
 
 const sans = Bricolage_Grotesque({
@@ -16,6 +18,11 @@ const sans = Bricolage_Grotesque({
 
 const theme = loadTheme()
 const themeCss = generateThemeCss(theme)
+
+// Build all theme CSS blobs for client-side theme restoration
+const allThemeCss = Object.fromEntries(
+  (Object.keys(presets) as ThemeName[]).map((name) => [name, generateThemeCss(presets[name])])
+)
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -53,8 +60,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={sans.variable}>
       <head>
         <style data-theme dangerouslySetInnerHTML={{ __html: themeCss }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){
+  try {
+    var t = localStorage.getItem("paw-theme");
+    if (t && ${JSON.stringify(allThemeCss)}[t]) {
+      document.querySelector("style[data-theme]").textContent = ${JSON.stringify(allThemeCss)}[t];
+    }
+  } catch(e){}
+})();`
+        }} />
       </head>
       <body className="font-sans bg-surface text-foreground antialiased">
+        <Preloader />
         <a className="skip" href="#main">Skip to content</a>
         <Header />
         <SmoothScroll>

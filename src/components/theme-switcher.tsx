@@ -92,6 +92,7 @@ export function ThemeSwitcher() {
   const switchTheme = useCallback((name: string) => {
     const css = themeCss[name]
     if (!css) return
+    localStorage.setItem("paw-theme", name)
     const style = document.querySelector<HTMLStyleElement>("style[data-theme]")
     if (style) {
       style.textContent = css
