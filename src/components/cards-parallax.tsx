@@ -4,8 +4,13 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "motion/react"
 
 function ParallaxCard({ children, index, total, progress }: { children: React.ReactNode; index: number; total: number; progress: any }) {
-  const targetScale = 1 - (total - index) * 0.03
-  const scale = useTransform(progress, [index * 0.12, 1], [1, targetScale])
+  // Scale evenly from 1.0 → 0.85 across the stack regardless of card count
+  const fraction = index / Math.max(total - 1, 1)
+  const targetScale = 1 - fraction * 0.15
+
+  // Each card's animation window: start when it becomes the "active" card, end at scroll complete
+  const start = total <= 10 ? index * 0.12 : index / total
+  const scale = useTransform(progress, [start, 1], [1, targetScale])
 
   return (
     <div className={`sticky top-4 h-[65vh] flex items-center justify-center ${index > 0 ? "-mt-[14vh]" : "mt-4"}`}>
@@ -30,7 +35,7 @@ export function CardsParallax({ children }: Props) {
   })
 
   return (
-    <div ref={container} className="relative" style={{ height: `${60 + totalItems * 45}vh` }}>
+    <div ref={container} className="relative" style={{ height: `${65 + (totalItems - 1) * 51}vh` }}>
       {children.map((child, i) => (
         <ParallaxCard key={i} index={i} total={totalItems} progress={scrollYProgress}>
           {child}

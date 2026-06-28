@@ -330,7 +330,7 @@ export default function HomePage() {
         </div>
 
         {/* Row 2 - scrolls right */}
-        <div className="group/row2 relative mx-auto w-full max-w-[76rem] overflow-hidden marquee-track">
+        <div className="group/row2 relative mx-auto w-full max-w-[76rem] overflow-hidden">
           <div className="marquee-track will-change-transform" style={{ animation: "marquee 40s linear infinite reverse" }}>
             {[...Array(2)].flatMap(() => testimonials).map((t, i) => (
               <div
