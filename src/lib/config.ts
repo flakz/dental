@@ -13,9 +13,9 @@ const baseConfig = {
   region: 'India',
   city: 'Chennai',
   phone: process.env.NEXT_PUBLIC_PHONE ?? '+91 90437 53438',
-  email: 'microsmilesdental@gmail.com',
-  address: 'Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.',
-  hours: 'Mon  -  Sat: 12pm – 8pm (Sunday Off)',
+  email: process.env.NEXT_PUBLIC_EMAIL ?? 'microsmilesdental@gmail.com',
+  address: process.env.NEXT_PUBLIC_ADDRESS ?? 'Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.',
+  hours: process.env.NEXT_PUBLIC_HOURS ?? 'Mon  -  Sat: 12pm – 8pm (Sunday Off)',
   social: {
     instagram: 'https://www.instagram.com/microsmilesdental',
     facebook: 'https://facebook.com/microsmilesdental',
