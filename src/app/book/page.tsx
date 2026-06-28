@@ -1,9 +1,7 @@
 import type { Metadata } from "next"
 import { site } from "@/lib/config"
 import { ContactForm } from "@/components/contact-form"
-import { Check } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
-import { Stagger, StaggerItem } from "@/components/motion/stagger"
 import { TextEffect } from "@/components/core/text-effect"
 
 export const metadata: Metadata = {
@@ -55,46 +53,16 @@ export default function BookPage() {
             </div>
           </Reveal>
           <Reveal variant="slideInRight" delay={0.2}>
-            <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
+            <aside className="lg:sticky lg:top-24 lg:self-start">
               <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6">
                 <h3 className="mb-4 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-                  Our Locations
+                  Tamil Nadu
                 </h3>
-                <ul className="divide-y divide-border text-sm">
-                  <li className="py-3">
-                    <p className="font-medium text-foreground">Chennai  -  Anna Nagar</p>
-                    <p className="mt-1 text-ink-soft">Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.</p>
-                    <p className="mt-1 text-ink-muted">Mon  -  Sat: 12pm – 8pm (Sunday Off)</p>
-                  </li>
-                  <li className="py-3">
-                    <p className="font-medium text-foreground">Chennai  -  OMR</p>
-                    <p className="mt-1 text-ink-soft">4A 4B 4th Floor, S. C, Sai Selvaraj Complex, 1. Rajiv Gandhi Salai, Semmancheri, Near Sathyabama University, Chennai, Tamil Nadu 600119.</p>
-                    <p className="mt-1 text-ink-muted">Mon  -  Sun: 11am – 8pm (Wednesday Off)</p>
-                  </li>
-                  <li className="py-3">
-                    <p className="font-medium text-foreground">Bangalore  -  Whitefield</p>
-                    <p className="mt-1 text-ink-soft">No: 17, Varthur Main Rd, Kumarapalli, Thubarahalli, Whitefield, Bengaluru, Karnataka 560 066.</p>
-                    <p className="mt-1 text-ink-muted">Mon  -  Sun: 11am – 8pm (Wednesday Off)</p>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6">
-                <h3 className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-                  Contact
-                </h3>
-                <ul className="space-y-2.5 text-sm text-ink-soft">
-                  {[
-                    "Chennai: +91 90437 53438",
-                    "Bangalore: +91 81473 80814",
-                    "No payment upfront",
-                    "Same-day appointments available",
-                  ].map((t) => (
-                    <li key={t} className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-success" aria-hidden="true" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm text-ink-soft">{site.address}</p>
+                <a href={`tel:${site.phone.replace(/\s+/g, "")}`} className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">
+                  {site.phone}
+                </a>
+                <p className="mt-1 text-xs text-ink-muted">{site.hours}</p>
               </div>
             </aside>
           </Reveal>
