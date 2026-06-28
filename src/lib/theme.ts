@@ -1,7 +1,7 @@
 // ponytail: theme presets. Switch via THEME=sand|charcoal|rose|terracotta|forest|navy|custom.
 // Build-time only — no runtime weight, no JS bundles.
 
-export type ThemeName = "terracotta" | "forest" | "navy" | "sand" | "charcoal" | "rose"
+export type ThemeName = "terracotta" | "forest" | "navy" | "sand" | "charcoal" | "rose" | "ocean"
 
 export interface Theme {
   name: ThemeName | "custom"
@@ -221,6 +221,37 @@ export const presets: Record<ThemeName, Theme> = {
     error: "#B23A1A",
     info: "#2A6B8E",
     dropdownOuter: "#E2CEC4",
+  },
+  ocean: {
+    name: "ocean",
+    primary: "#3887A8",
+    primaryInk: "#FBFAF4",
+    primarySoft: "#B5D4E0",
+    primaryDeep: "#1F5C73",
+    accent: "#E8A33D",
+    accentInk: "#0E1730",
+    accentSoft: "#F5DBA0",
+    secondary: "#5A7A8A",
+    secondaryInk: "#FBFAF4",
+    secondarySoft: "#D0DDE3",
+    surface: "#F0F5F7",
+    surfaceElevated: "#FBFAF4",
+    surfaceMuted: "#DDE8ED",
+    surfaceDark: "#0E1F2A",
+    surfaceDarker: "#080F16",
+    ink: "#0E1F2A",
+    inkSoft: "#2C3E4A",
+    inkMuted: "#4A6070",
+    inkOnDark: "#E8EFF3",
+    inkMutedOnDark: "#9BB0BD",
+    border: "#C5D5DD",
+    borderStrong: "#A8BFC9",
+    borderOnDark: "rgba(232,239,243,0.10)",
+    success: "#3A7A5C",
+    warning: "#CBA645",
+    error: "#B23A1A",
+    info: "#2A6B8E",
+    dropdownOuter: "#D5E2E8",
   },
 }
 
