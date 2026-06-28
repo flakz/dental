@@ -2,6 +2,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/motion/reveal"
+import { Stagger, StaggerItem } from "@/components/motion/stagger"
+import { HoverLift } from "@/components/motion/hover-lift"
+import { TextEffect } from "@/components/core/text-effect"
 
 export const metadata: Metadata = {
   title: "Take a Tour",
@@ -20,27 +24,31 @@ const tourItems = [
 export default function TakeATourPage() {
   return (
     <section className="container-page pb-12 pt-28 md:pb-16 md:pt-[120px]">
-      <div className="mx-auto max-w-3xl text-center">
+      <Reveal variant="fadeInUp" className="mx-auto max-w-3xl text-center">
         <span className="eyebrow">Take a Tour</span>
-        <h1 className="mt-4 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
-          See Microsmiles <span className="text-primary">up close.</span>
-        </h1>
+        <TextEffect per="word" preset="fade-in-blur" as="h1" className="mt-4 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
+          See Microsmiles up close.
+        </TextEffect>
         <p className="lead mt-5">
           Modern clinics, specialist teams, and a patient-first environment. Take a visual walk through our multiple locations across Tamil Nadu.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Stagger stagger={0.08} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {tourItems.map((item) => (
-          <div key={item.title} className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-7 shadow-[var(--shadow-md)]">
-            <img src={item.img} alt={item.title} className="aspect-video w-full rounded-[var(--radius-lg)] object-cover" />
-            <h2 className="mt-5 font-display text-lg font-medium leading-tight tracking-tight">{item.title}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.desc}</p>
-          </div>
+          <StaggerItem key={item.title}>
+            <HoverLift>
+              <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-7 shadow-[var(--shadow-md)]">
+                <img src={item.img} alt={item.title} className="aspect-video w-full rounded-[var(--radius-lg)] object-cover" />
+                <h2 className="mt-5 font-display text-lg font-medium leading-tight tracking-tight">{item.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.desc}</p>
+              </div>
+            </HoverLift>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
 
-      <div className="mt-14 text-center">
+      <Reveal variant="fadeInUp" className="mt-14 text-center">
         <p className="text-ink-muted">
           Prefer a real visit? Walk into any of our clinics during operating hours  -  no appointment needed for a first look.
         </p>
@@ -50,7 +58,7 @@ export default function TakeATourPage() {
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
           </Link>
         </Button>
-      </div>
+      </Reveal>
     </section>
   )
 }

@@ -7,6 +7,10 @@ import { images } from "@/lib/images"
 import { site } from "@/lib/config"
 import { Button } from "@/components/ui/button"
 import { CardsParallax } from "@/components/cards-parallax"
+import { Reveal } from "@/components/motion/reveal"
+import { Stagger, StaggerItem } from "@/components/motion/stagger"
+import { HoverLift } from "@/components/motion/hover-lift"
+import { TextEffect } from "@/components/core/text-effect"
 
 export const metadata: Metadata = {
   title: "Services",
@@ -35,13 +39,19 @@ export default function ServicesPage() {
         </div>
         <div className="container-page pt-32 pb-20 lg:pt-40 lg:pb-24">
           <div className="max-w-2xl text-background">
-            <span className="eyebrow on-dark">Our services</span>
-            <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
-              Complete dental care for every age.
-            </h1>
-            <p className="lead on-dark mt-5">
-              Browse by category below. Starting prices listed; final cost depends on the case complexity, confirmed at consultation.
-            </p>
+            <Reveal variant="fadeInUp">
+              <span className="eyebrow on-dark">Our services</span>
+            </Reveal>
+            <Reveal variant="fadeInUp" delay={0.1}>
+              <TextEffect per="word" preset="fade-in-blur" as="h1" className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
+                Complete dental care for every age.
+              </TextEffect>
+            </Reveal>
+            <Reveal variant="fadeInUp" delay={0.2}>
+              <p className="lead on-dark mt-5">
+                Browse by category below. Starting prices listed; final cost depends on the case complexity, confirmed at consultation.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -51,17 +61,23 @@ export default function ServicesPage() {
         {grouped.map((g) => (
           <section key={g.cat} className="section-y-sm section-blend">
             <div className="container-page">
-              <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
+              <Reveal variant="fadeInUp" className="mb-10 flex items-end justify-between border-b border-border pb-4">
                 <h2 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
                   {categoryLabel[g.cat]}
                 </h2>
                 <span className="text-sm text-ink-muted">
                   {g.items.length} {g.items.length === 1 ? "service" : "services"}
                 </span>
-              </div>
-              <div className="grid gap-5 grid-cols-3">
-                {g.items.map((s) => <ServiceCard key={s.slug} s={s} />)}
-              </div>
+              </Reveal>
+              <Stagger stagger={0.05} className="grid gap-5 grid-cols-3">
+                {g.items.map((s) => (
+                  <StaggerItem key={s.slug}>
+                    <HoverLift>
+                      <ServiceCard s={s} />
+                    </HoverLift>
+                  </StaggerItem>
+                ))}
+              </Stagger>
             </div>
           </section>
         ))}

@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, Star, ShieldCheck, Clock, Heart, Sparkles, Check } from "lucide-react"
@@ -17,6 +19,11 @@ import {
 } from "@/components/shadcncraft/pro-marketing/section-heading"
 import FAQ2 from "@/components/watermelon-ui/faq-2"
 import { CardsParallax } from "@/components/cards-parallax"
+import { Reveal } from "@/components/motion/reveal"
+import { Stagger, StaggerItem } from "@/components/motion/stagger"
+import { HoverLift } from "@/components/motion/hover-lift"
+import { ParallaxY } from "@/components/motion/parallax-y"
+import { TextEffect } from "@/components/core/text-effect"
 
 const stats = [
   { value: "4.9", suffix: "★", label: "Google rating", detail: "1,477+ reviews" },
@@ -54,85 +61,102 @@ export default function HomePage() {
       <section className="relative isolate section-blend">
         <div className="container-page grid gap-12 pb-10 pt-28 md:pb-10 md:pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div className="flex flex-col justify-start">
-            <div className="flex items-center gap-3">
-              <Badge variant="secondary" className="rounded-full bg-primary-soft px-3 py-1 text-primary-deep hover:bg-primary-soft">
-                <Sparkles className="mr-1 h-3 w-3" aria-hidden="true" />
-                Painless Dentistry · {site.city}
-              </Badge>
-              <span className="inline-flex items-center gap-1 text-xs text-ink-muted">
-                <Star className="h-3 w-3 fill-current text-accent" aria-hidden="true" />
-                4.9 on Google
-              </span>
-            </div>
-
-            <h1 className="mt-6 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[0.98] tracking-[-0.025em]">
-              You smile,{" "}
-              <span className="text-primary">we smile.</span>
-            </h1>
-
-            <p className="lead mt-7" style={{ maxWidth: 587 }}>
-              Root canal, implants, crowns, braces, invisalign, and kids dentistry  -  from one trusted team of specialists. <span className="text-primary font-medium">UK-adopted painless protocols.</span> Across Tamil Nadu, every day except Sunday.
-            </p>
-
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Button asChild className="group bg-primary text-primary-foreground shadow-[var(--shadow-cta)] hover:bg-primary-deep">
-                <Link href="/book">
-                  Book Appointment
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="bg-surface-muted/50 border-border/60">
-                <a href={`tel:${site.phone.replace(/\s+/g, "")}`}>
-                  Call {site.phone}
-                </a>
-              </Button>
-            </div>
-
-            <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.label} className="border-l border-border pl-4">
-                  <dt className="whitespace-nowrap font-display text-2xl font-medium leading-none tracking-tight text-foreground">
-                    {s.value}<span className="text-primary">{s.suffix}</span>
-                  </dt>
-                  <dd className="mt-1.5 text-xs text-ink-muted">{s.label}</dd>
+            <Stagger stagger={0.08} delay={0.1}>
+              <StaggerItem>
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary" className="rounded-full bg-primary-soft px-3 py-1 text-primary-deep hover:bg-primary-soft">
+                    <Sparkles className="mr-1 h-3 w-3" aria-hidden="true" />
+                    Painless Dentistry · {site.city}
+                  </Badge>
+                  <span className="inline-flex items-center gap-1 text-xs text-ink-muted">
+                    <Star className="h-3 w-3 fill-current text-accent" aria-hidden="true" />
+                    4.9 on Google
+                  </span>
                 </div>
-              ))}
-            </dl>
+              </StaggerItem>
+
+              <StaggerItem>
+                <TextEffect per="word" preset="fade-in-blur" as="h1" className="mt-6 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[0.98] tracking-[-0.025em]">
+                  You smile, we smile.
+                </TextEffect>
+              </StaggerItem>
+
+              <StaggerItem>
+                <p className="lead mt-7" style={{ maxWidth: 587 }}>
+                  Root canal, implants, crowns, braces, invisalign, and kids dentistry  -  from one trusted team of specialists. <span className="text-primary font-medium">UK-adopted painless protocols.</span> Across Tamil Nadu, every day except Sunday.
+                </p>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="mt-9 flex flex-wrap items-center gap-3">
+                  <Button asChild className="group bg-primary text-primary-foreground shadow-[var(--shadow-cta)] hover:bg-primary-deep">
+                    <Link href="/book">
+                      Book Appointment
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="bg-surface-muted/50 border-border/60">
+                    <a href={`tel:${site.phone.replace(/\s+/g, "")}`}>
+                      Call {site.phone}
+                    </a>
+                  </Button>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
+                  {stats.map((s) => (
+                    <div key={s.label} className="border-l border-border pl-4">
+                      <dt className="whitespace-nowrap font-display text-2xl font-medium leading-none tracking-tight text-foreground">
+                        {s.value}<span className="text-primary">{s.suffix}</span>
+                      </dt>
+                      <dd className="mt-1.5 text-xs text-ink-muted">{s.label}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </StaggerItem>
+            </Stagger>
           </div>
 
           {/* Hero image with floating card */}
           <div className="relative">
-            <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
-              <div className="p-[6px]">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] shadow-sm">
-                  <Image
-                    src={`/${images.hero.goldenPortrait.file}`}
-                    alt={images.hero.goldenPortrait.alt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
+            <Reveal variant="scaleIn" delay={0.3}>
+              <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
+                <div className="p-[6px]">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] shadow-sm">
+                    <Image
+                      src={`/${images.hero.goldenPortrait.file}`}
+                      alt={images.hero.goldenPortrait.alt}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Floating stat card */}
-            <div className="absolute -left-6 bottom-10 hidden rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-4 shadow-[var(--shadow-md)] sm:flex sm:items-center sm:gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-full bg-primary-soft text-primary-deep">
-                <div className="h-6 w-6" style={{ backgroundColor: "var(--paw-primary)", maskImage: "url(/home1.png)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url(/home1.png)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+            <Reveal variant="slideInLeft" delay={0.6} className="absolute -left-6 bottom-10 hidden sm:flex">
+              <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-4 shadow-[var(--shadow-md)] sm:flex sm:items-center sm:gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-full bg-primary-soft text-primary-deep">
+                  <div className="h-6 w-6" style={{ backgroundColor: "var(--paw-primary)", maskImage: "url(/home1.png)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url(/home1.png)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                </div>
+                <div>
+                  <p className="font-display text-lg font-medium leading-none">15,000+ smiles</p>
+                  <p className="mt-1 text-xs text-ink-muted">restored across Tamil Nadu</p>
+                </div>
               </div>
-              <div>
-                <p className="font-display text-lg font-medium leading-none">15,000+ smiles</p>
-                <p className="mt-1 text-xs text-ink-muted">restored across Tamil Nadu</p>
-              </div>
-            </div>
+            </Reveal>
 
             {/* Floating review pill */}
-            <div className="absolute -right-4 top-8 hidden rounded-full border border-border bg-surface-elevated px-3 py-1.5 shadow-[var(--shadow-sm)] sm:flex sm:items-center sm:gap-1.5">
-              <ShieldCheck className="h-3.5 w-3.5 text-success" aria-hidden="true" />
-              <span className="text-xs font-medium">UK-trained specialists</span>
-            </div>
+            <Reveal variant="slideInRight" delay={0.5} className="absolute -right-4 top-8 hidden sm:flex">
+              <div className="rounded-full border border-border bg-surface-elevated px-3 py-1.5 shadow-[var(--shadow-sm)] sm:flex sm:items-center sm:gap-1.5">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" aria-hidden="true" />
+                <span className="text-xs font-medium">UK-trained specialists</span>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -142,15 +166,17 @@ export default function HomePage() {
           ============================================================ */}
       <section className="section-y-sm section-blend">
         <div className="container-page">
-          <SectionHeading alignment="left" className="max-w-3xl">
-            <SectionHeadingTagline>What we do</SectionHeadingTagline>
-            <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
-              One team for every kind of care your teeth need.
-            </SectionHeadingTitle>
-            <SectionHeadingBody>
-              Starting prices below. Final price depends on the procedure, confirmed during your consultation.
-            </SectionHeadingBody>
-          </SectionHeading>
+          <Reveal variant="fadeInUp">
+            <SectionHeading alignment="left" className="max-w-3xl">
+              <SectionHeadingTagline>What we do</SectionHeadingTagline>
+              <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
+                One team for every kind of care your teeth need.
+              </SectionHeadingTitle>
+              <SectionHeadingBody>
+                Starting prices below. Final price depends on the procedure, confirmed during your consultation.
+              </SectionHeadingBody>
+            </SectionHeading>
+          </Reveal>
 
           {/* Mobile: parallax stack, Desktop: grid */}
           <div className="lg:hidden">
@@ -178,29 +204,33 @@ export default function HomePage() {
               })}
             </CardsParallax>
           </div>
-          <div className="mt-12 hidden lg:grid lg:grid-cols-4 lg:gap-4">
+          <Stagger stagger={0.05} className="mt-12 hidden lg:grid lg:grid-cols-4 lg:gap-4">
             {services.map((s) => {
               const key = s.slug as keyof typeof images
               const img = (images as any)[key] ?? images.kitten
               return (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
-                  <div className="p-[6px]">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-md ring-[1.5px] ring-white/80">
-                      <Image src={`/${img.file}`} alt={img.alt} fill sizes="25vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                    </div>
-                  </div>
-                  <div className="flex flex-1 flex-col gap-3 px-5 pb-5 pt-5">
-                    <h3 className="font-display text-lg font-medium leading-tight tracking-tight">{s.name}</h3>
-                    <p className="text-sm leading-relaxed text-ink-soft">{s.short}</p>
-                    <div className="mt-auto flex items-center justify-between border-t border-border pt-4">
-                      <span className="text-sm font-medium text-foreground">From <span className="font-display">{s.startingPrice}</span></span>
-                      <ArrowUpRight className="h-4 w-4 text-ink-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" aria-hidden="true" />
-                    </div>
-                  </div>
-                </Link>
+                <StaggerItem key={s.slug}>
+                  <HoverLift>
+                    <Link href={`/services/${s.slug}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
+                      <div className="p-[6px]">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-md ring-[1.5px] ring-white/80">
+                          <Image src={`/${img.file}`} alt={img.alt} fill sizes="25vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                      </div>
+                      <div className="flex flex-1 flex-col gap-3 px-5 pb-5 pt-5">
+                        <h3 className="font-display text-lg font-medium leading-tight tracking-tight">{s.name}</h3>
+                        <p className="text-sm leading-relaxed text-ink-soft">{s.short}</p>
+                        <div className="mt-auto flex items-center justify-between border-t border-border pt-4">
+                          <span className="text-sm font-medium text-foreground">From <span className="font-display">{s.startingPrice}</span></span>
+                          <ArrowUpRight className="h-4 w-4 text-ink-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" aria-hidden="true" />
+                        </div>
+                      </div>
+                    </Link>
+                  </HoverLift>
+                </StaggerItem>
               )
             })}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -210,51 +240,59 @@ export default function HomePage() {
       <section className="section-y-sm section-blend">
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <div className="relative">
-            <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
-              <div className="p-[6px]">
-                <div className="aspect-[5/6] overflow-hidden rounded-[24px] shadow-sm">
-                  <Image
-                    src={`/${images.kitten.file}`}
-                    alt={images.kitten.alt}
-                    width={900}
-                    height={1080}
-                    className="h-full w-full object-cover"
-                  />
+            <Reveal variant="slideInLeft">
+              <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
+                <div className="p-[6px]">
+                  <div className="aspect-[5/6] overflow-hidden rounded-[24px] shadow-sm">
+                    <Image
+                      src={`/${images.kitten.file}`}
+                      alt={images.kitten.alt}
+                      width={900}
+                      height={1080}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="absolute -bottom-6 -right-6 hidden rounded-[var(--radius-xl)] bg-surface-elevated p-5 text-foreground shadow-[var(--shadow-lg)] sm:block">
-              <p className="font-display text-3xl font-medium leading-none">15+ years</p>
-              <p className="mt-1.5 text-xs text-ink-muted">Of painless dentistry, in {site.city}</p>
-            </div>
+            </Reveal>
+            <Reveal variant="scaleIn" delay={0.4} className="absolute -bottom-6 -right-6 hidden sm:block">
+              <div className="rounded-[var(--radius-xl)] bg-surface-elevated p-5 text-foreground shadow-[var(--shadow-lg)]">
+                <p className="font-display text-3xl font-medium leading-none">15+ years</p>
+                <p className="mt-1.5 text-xs text-ink-muted">Of painless dentistry, in {site.city}</p>
+              </div>
+            </Reveal>
           </div>
 
           <div>
-            <p className="eyebrow">Why Microsmiles</p>
-            <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
-              Led by specialists, <span className="serif-italic text-primary font-semibold">built for comfort.</span>
-            </h2>
-            <p className="lead mt-6" style={{ maxWidth: 624 }}>
-              Microsmiles was founded by clinicians trained in the UK, bringing world-class painless dentistry to India. Every procedure, every protocol  -  designed around your comfort.
-            </p>
+            <Reveal variant="fadeInUp">
+              <p className="eyebrow">Why Microsmiles</p>
+              <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
+                Led by specialists, <span className="serif-italic text-primary font-semibold">built for comfort.</span>
+              </h2>
+              <p className="lead mt-6" style={{ maxWidth: 624 }}>
+                Microsmiles was founded by clinicians trained in the UK, bringing world-class painless dentistry to India. Every procedure, every protocol  -  designed around your comfort.
+              </p>
+            </Reveal>
 
-            <ul className="mt-9 space-y-4">
+            <Stagger stagger={0.1} className="mt-9 space-y-4">
               {[
                 { icon: ShieldCheck, t: "UK-trained, specialist-led team", d: "Every doctor is MDS-qualified. Our clinical director trained at the University of Edinburgh." },
                 { icon: Clock, t: "Painless protocols, guaranteed", d: "From local anaesthesia to sedation options  -  we make sure you feel nothing." },
                 { icon: Heart, t: "Your smile, our priority", d: "We explain everything upfront. No hidden costs, no pressure, just honest dental care." },
               ].map(({ icon: Icon, t, d }) => (
-                <li key={t} className="flex items-start gap-4">
-                  <span className="mt-0.5 grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-border bg-surface-elevated text-primary">
-                    <Icon className="h-4 w-4" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="font-medium text-foreground">{t}</p>
-                    <p className="mt-0.5 text-sm text-ink-soft">{d}</p>
-                  </div>
-                </li>
+                <StaggerItem key={t}>
+                  <li className="flex items-start gap-4">
+                    <span className="mt-0.5 grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-border bg-surface-elevated text-primary">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-medium text-foreground">{t}</p>
+                      <p className="mt-0.5 text-sm text-ink-soft">{d}</p>
+                    </div>
+                  </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
           </div>
         </div>
       </section>
@@ -264,22 +302,26 @@ export default function HomePage() {
           ============================================================ */}
       <section className="section-y-sm section-blend">
         <div className="container-page">
-          <SectionHeading alignment="center" className="mx-auto max-w-2xl">
-            <SectionHeadingTagline>How it works</SectionHeadingTagline>
-            <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
-              From booking to a brighter smile in four steps.
-            </SectionHeadingTitle>
-          </SectionHeading>
+          <Reveal variant="fadeInUp" className="mx-auto max-w-2xl">
+            <SectionHeading alignment="center">
+              <SectionHeadingTagline>How it works</SectionHeadingTagline>
+              <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
+                From booking to a brighter smile in four steps.
+              </SectionHeadingTitle>
+            </SectionHeading>
+          </Reveal>
 
-          <ol className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-xl)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger stagger={0.12} className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-xl)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step) => (
-              <li key={step.n} className="relative flex flex-col gap-3 bg-surface-elevated p-6 lg:p-7">
-                <span className="font-display text-3xl font-medium leading-none text-primary">{step.n}</span>
-                <h3 className="font-display text-lg font-medium leading-tight tracking-tight">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-ink-soft">{step.body}</p>
-              </li>
+              <StaggerItem key={step.n}>
+                <li className="relative flex flex-col gap-3 bg-surface-elevated p-6 lg:p-7">
+                  <span className="font-display text-3xl font-medium leading-none text-primary">{step.n}</span>
+                  <h3 className="font-display text-lg font-medium leading-tight tracking-tight">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-ink-soft">{step.body}</p>
+                </li>
+              </StaggerItem>
             ))}
-          </ol>
+          </Stagger>
         </div>
       </section>
 
@@ -290,14 +332,14 @@ export default function HomePage() {
           ============================================================ */}
       <section className="pt-10">
         <div className="container-page">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
+          <Reveal variant="fadeInUp" className="mx-auto mb-12 max-w-3xl text-center">
             <SectionHeading alignment="center">
               <SectionHeadingTagline>Loved by patients</SectionHeadingTagline>
               <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
                 What our patients say about us.
               </SectionHeadingTitle>
             </SectionHeading>
-          </div>
+          </Reveal>
         </div>
 
         <div className="group relative mx-auto max-w-[76rem] overflow-hidden">
