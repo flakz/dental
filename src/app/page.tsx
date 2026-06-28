@@ -167,7 +167,7 @@ export default function HomePage() {
       {/* ============================================================
           SERVICES
           ============================================================ */}
-      <section className="pt-2.5 section-blend">
+      <section className="pt-2.5 pb-10 section-blend">
         <div className="container-page">
           <Reveal variant="slideBlurUp">
             <SectionHeading alignment="left" className="max-w-3xl">
