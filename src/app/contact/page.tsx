@@ -1,34 +1,13 @@
 import type { Metadata } from "next"
+import { site } from "@/lib/config"
 import { ContactForm } from "@/components/contact-form"
 import { Reveal } from "@/components/motion/reveal"
-import { Stagger, StaggerItem } from "@/components/motion/stagger"
 import { TextEffect } from "@/components/core/text-effect"
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description: `Get in touch with Microsmiles Dental Care. Visit us in Tamil Nadu, or call to book your dental appointment.`,
 }
-
-const locations = [
-  {
-    name: "Chennai  -  Anna Nagar",
-    address: "Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.",
-    phone: "+91 90437 53438",
-    hours: "Mon  -  Sat: 12pm – 8pm (Sunday Off)",
-  },
-  {
-    name: "Chennai  -  OMR",
-    address: "4A 4B 4th Floor, S. C, Sai Selvaraj Complex, 1. Rajiv Gandhi Salai, Semmancheri, Near Sathyabama University, Chennai, Tamil Nadu 600119.",
-    phone: "+91 90437 53438",
-    hours: "Mon  -  Sun: 11am – 8pm (Wednesday Off)",
-  },
-  {
-    name: "Bangalore  -  Whitefield",
-    address: "No: 17, Varthur Main Rd, Kumarapalli, Thubarahalli, Whitefield, Bengaluru, Karnataka 560 066.",
-    phone: "+91 81473 80814",
-    hours: "Mon  -  Sun: 11am – 8pm (Wednesday Off)",
-  },
-]
 
 export default function ContactPage() {
   return (
@@ -72,22 +51,16 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          <Stagger stagger={0.1} className="space-y-3">
-            {locations.map((loc) => (
-              <StaggerItem key={loc.name}>
-                <div
-                  className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-5"
-                >
-                  <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">{loc.name}</p>
-                  <p className="mt-2 text-sm text-ink-soft">{loc.address}</p>
-                  <a href={`tel:${loc.phone.replace(/\s+/g, "")}`} className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">
-                    {loc.phone}
-                  </a>
-                  <p className="mt-1 text-xs text-ink-muted">{loc.hours}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+          <Reveal variant="slideInRight" delay={0.2}>
+            <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-5">
+              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">Tamil Nadu</p>
+              <p className="mt-2 text-sm text-ink-soft">{site.address}</p>
+              <a href={`tel:${site.phone.replace(/\s+/g, "")}`} className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">
+                {site.phone}
+              </a>
+              <p className="mt-1 text-xs text-ink-muted">{site.hours}</p>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>
