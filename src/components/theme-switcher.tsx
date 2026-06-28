@@ -1,8 +1,8 @@
 "use client"
 
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { cn } from "@/lib/utils"
-import { CustomThemePicker } from "@/components/custom-theme-picker"
+import { CustomColorButton } from "@/components/custom-theme-picker"
 
 const themes = [
   { name: "navy", label: "Navy", color: "#1B2A4E" },
@@ -14,7 +14,6 @@ const themes = [
   { name: "ocean", label: "Ocean", color: "#3887A8" },
 ] as const
 
-// All 6 theme CSS blobs — generated from the theme presets
 const themeCss: Record<string, string> = {
   navy: `:root {
   --paw-primary: #1B2A4E; --paw-primary-ink: #FBFAF4; --paw-primary-soft: #B8C5DD; --paw-primary-deep: #0F1A33;
@@ -103,8 +102,6 @@ const themeCss: Record<string, string> = {
 }
 
 export function ThemeSwitcher() {
-  const [customOpen, setCustomOpen] = useState(false)
-
   const switchTheme = useCallback((name: string) => {
     const css = themeCss[name]
     if (!css) return
@@ -121,32 +118,28 @@ export function ThemeSwitcher() {
   }, [])
 
   return (
-    <>
-      <div className="fixed bottom-4 right-4 z-[100] flex items-center gap-1.5 rounded-full border border-border bg-surface-elevated p-1.5 shadow-lg">
-        {themes.map((t) => (
-          <button
-            key={t.name}
-            onClick={() => switchTheme(t.name)}
-            className={cn(
-              "h-6 w-6 rounded-full border-2 border-border transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary/50"
-            )}
-            style={{ backgroundColor: t.color }}
-            title={t.label}
-            aria-label={`Switch to ${t.label} theme`}
-          />
-        ))}
+    <div className="fixed bottom-4 right-4 z-[100] flex items-center gap-1.5 rounded-full border border-border bg-surface-elevated p-1.5 shadow-lg">
+      {themes.map((t) => (
         <button
-          onClick={() => setCustomOpen(!customOpen)}
-          className="h-6 w-6 rounded-full border-2 border-border transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary/50"
-          style={{
-            background: "linear-gradient(135deg, #FF6B6B, #FFA07A, #FFD93D, #6BCB77, #4D96FF, #9B59B6)",
-          }}
-          title="Custom Theme"
-          aria-label="Open custom theme picker"
+          key={t.name}
+          onClick={() => switchTheme(t.name)}
+          className={cn(
+            "h-6 w-6 rounded-full border-2 border-border transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary/50"
+          )}
+          style={{ backgroundColor: t.color }}
+          title={t.label}
+          aria-label={`Switch to ${t.label} theme`}
         />
+      ))}
+      <div className="relative h-6 w-6 rounded-full border-2 border-border transition-transform hover:scale-110"
+        style={{
+          background: "linear-gradient(135deg, #FF6B6B, #FFA07A, #FFD93D, #6BCB77, #4D96FF, #9B59B6)",
+        }}
+        title="Custom color"
+        aria-label="Pick a custom theme color"
+      >
+        <CustomColorButton />
       </div>
-
-      <CustomThemePicker open={customOpen} onClose={() => setCustomOpen(false)} />
-    </>
+    </div>
   )
 }

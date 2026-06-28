@@ -1,25 +1,7 @@
 "use client"
 
-import { useState, useCallback } from "react"
-import { motion, AnimatePresence } from "motion/react"
-import { X } from "lucide-react"
+import { useRef } from "react"
 import { generateThemeCss } from "@/lib/theme"
-
-const defaultColors = {
-  primary: "#1B2A4E",
-  accent: "#E8A33D",
-  surface: "#F2EDE4",
-  surfaceElevated: "#FBFAF4",
-  ink: "#0E1730",
-}
-
-const colorFields = [
-  { key: "primary", label: "Primary" },
-  { key: "accent", label: "Accent" },
-  { key: "surface", label: "Background" },
-  { key: "surfaceElevated", label: "Card BG" },
-  { key: "ink", label: "Text" },
-] as const
 
 function hexToHsl(hex: string): { h: number; s: number; l: number } {
   const r = parseInt(hex.slice(1, 3), 16) / 255
@@ -48,144 +30,104 @@ function hslToHex(h: number, s: number, l: number): string {
   return `#${f(0)}${f(8)}${f(4)}`
 }
 
-function deriveColors(base: Record<string, string>) {
-  const p = hexToHsl(base.primary)
-  const a = hexToHsl(base.accent)
-  const s = hexToHsl(base.surface)
-  const i = hexToHsl(base.ink)
+function deriveThemeFromPrimary(hex: string) {
+  const p = hexToHsl(hex)
+
+  // Surface: very light tint of primary
+  const surfaceH = p.h
+  const surfaceS = Math.min(p.s, 15)
+  const surfaceL = 95
+  const surface = hslToHex(surfaceH, surfaceS, surfaceL)
+  const surfaceElevated = hslToHex(surfaceH, Math.min(surfaceS, 10), 98)
+  const surfaceMuted = hslToHex(surfaceH, Math.min(surfaceS + 3, 20), 90)
+
+  // Ink: dark version of primary hue
+  const inkH = p.h
+  const inkS = Math.min(p.s + 5, 35)
+  const ink = hslToHex(inkH, inkS, 12)
+  const inkSoft = hslToHex(inkH, Math.min(inkS, 25), 28)
+  const inkMuted = hslToHex(inkH, Math.min(inkS, 20), 42)
+
+  // Dark surfaces
+  const surfaceDark = hslToHex(inkH, Math.min(inkS, 25), 10)
+  const surfaceDarker = hslToHex(inkH, Math.min(inkS, 20), 5)
+
+  // Accent: complementary — shift hue 150° and use a warm tone
+  const accentH = (p.h + 150) % 360
+  const accent = hslToHex(accentH, 70, 55)
+
+  // Border: muted version of surface
+  const border = hslToHex(surfaceH, Math.min(surfaceS + 3, 20), 82)
+  const borderStrong = hslToHex(surfaceH, Math.min(surfaceS + 5, 25), 74)
+
+  // Dropdown
+  const dropdownOuter = hslToHex(surfaceH, Math.min(surfaceS + 3, 22), 87)
 
   return {
-    primary: base.primary,
+    primary: hex,
     primaryInk: p.l > 50 ? "#0E1730" : "#FBFAF4",
-    primarySoft: hslToHex(p.h, Math.min(p.s, 30), 85),
+    primarySoft: hslToHex(p.h, Math.min(p.s + 5, 40), 88),
     primaryDeep: hslToHex(p.h, Math.min(p.s + 10, 100), Math.max(p.l - 20, 10)),
-    accent: base.accent,
-    accentInk: a.l > 50 ? "#1A1A1A" : "#FBFAF4",
-    accentSoft: hslToHex(a.h, Math.min(a.s, 40), 90),
-    secondary: hslToHex(p.h, Math.min(p.s, 20), 50),
-    secondaryInk: "#FBFAF4",
-    secondarySoft: hslToHex(p.h, 15, 88),
-    surface: base.surface,
-    surfaceElevated: base.surfaceElevated,
-    surfaceMuted: hslToHex(s.h, Math.min(s.s, 20), 90),
-    surfaceDark: hslToHex(i.h, Math.min(i.s, 30), 12),
-    surfaceDarker: hslToHex(i.h, Math.min(i.s, 30), 6),
-    ink: base.ink,
-    inkSoft: hslToHex(i.h, Math.min(i.s, 20), 25),
-    inkMuted: hslToHex(i.h, Math.min(i.s, 15), 40),
-    inkOnDark: hslToHex(i.h, 10, 92),
-    inkMutedOnDark: hslToHex(i.h, 8, 70),
-    border: hslToHex(s.h, Math.min(s.s, 20), 82),
-    borderStrong: hslToHex(s.h, Math.min(s.s, 25), 75),
-    borderOnDark: `rgba(${parseInt(base.ink.slice(1, 3), 16)},${parseInt(base.ink.slice(3, 5), 16)},${parseInt(base.ink.slice(5, 7), 16)},0.10)`,
+    accent,
+    accentInk: "#1A1A1A",
+    accentSoft: hslToHex(accentH, 40, 92),
+    secondary: hslToHex(p.h, Math.min(p.s + 5, 30), 55),
+    secondaryInk: p.l > 50 ? "#0E1730" : "#FBFAF4",
+    secondarySoft: hslToHex(p.h, 12, 90),
+    surface,
+    surfaceElevated,
+    surfaceMuted,
+    surfaceDark,
+    surfaceDarker,
+    ink,
+    inkSoft,
+    inkMuted,
+    inkOnDark: hslToHex(inkH, 10, 93),
+    inkMutedOnDark: hslToHex(inkH, 8, 72),
+    border,
+    borderStrong,
+    borderOnDark: `rgba(${parseInt(ink.slice(1, 3), 16)},${parseInt(ink.slice(3, 5), 16)},${parseInt(ink.slice(5, 7), 16)},0.10)`,
     success: "#3A7A5C",
     warning: "#CBA645",
     error: "#B23A1A",
     info: "#2A6B8E",
-    dropdownOuter: hslToHex(s.h, Math.min(s.s, 20), 85),
+    dropdownOuter,
   }
 }
 
-interface CustomThemePickerProps {
-  open: boolean
-  onClose: () => void
+function applyCustomTheme(hex: string) {
+  const derived = deriveThemeFromPrimary(hex)
+  const css = generateThemeCss({ name: "custom", ...derived } as any)
+  localStorage.setItem("paw-custom-primary", hex)
+  localStorage.setItem("paw-theme", "custom")
+  localStorage.setItem("paw-custom-css", css)
+  const style = document.querySelector<HTMLStyleElement>("style[data-theme]")
+  if (style) style.textContent = css
 }
 
-export function CustomThemePicker({ open, onClose }: CustomThemePickerProps) {
-  const [colors, setColors] = useState<Record<string, string>>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = localStorage.getItem("paw-custom-colors")
-        if (saved) return JSON.parse(saved)
-      } catch {}
-    }
-    return { ...defaultColors }
-  })
-
-  const applyTheme = useCallback((c: Record<string, string>) => {
-    const derived = deriveColors(c)
-    const css = generateThemeCss({ name: "custom", ...derived } as any)
-    localStorage.setItem("paw-custom-colors", JSON.stringify(c))
-    localStorage.setItem("paw-theme", "custom")
-    localStorage.setItem("paw-custom-css", css)
-    const style = document.querySelector<HTMLStyleElement>("style[data-theme]")
-    if (style) style.textContent = css
-  }, [])
-
-  const updateColor = (key: string, value: string) => {
-    const next = { ...colors, [key]: value }
-    setColors(next)
-    applyTheme(next)
-  }
+export function CustomColorButton() {
+  const inputRef = useRef<HTMLInputElement>(null)
 
   return (
-    <AnimatePresence>
-      {open && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/30 backdrop-blur-sm"
-            onClick={onClose}
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-16 right-4 z-[201] w-72 rounded-2xl border border-border bg-surface-elevated p-5 shadow-2xl"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-display text-sm font-medium">Custom Theme</h3>
-              <button onClick={onClose} className="rounded-full p-1 hover:bg-surface-muted transition-colors">
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="space-y-3">
-              {colorFields.map(({ key, label }) => (
-                <div key={key} className="flex items-center gap-3">
-                  <label className="relative cursor-pointer">
-                    <input
-                      type="color"
-                      value={colors[key]}
-                      onChange={(e) => updateColor(key, e.target.value)}
-                      className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-                    />
-                    <div
-                      className="h-8 w-8 rounded-lg border-2 border-border shadow-sm transition-transform hover:scale-110"
-                      style={{ backgroundColor: colors[key] }}
-                    />
-                  </label>
-                  <div className="flex-1">
-                    <p className="text-xs font-medium text-foreground">{label}</p>
-                    <p className="text-[10px] text-ink-muted font-mono">{colors[key]}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 flex gap-2">
-              <button
-                onClick={() => {
-                  setColors({ ...defaultColors })
-                  applyTheme(defaultColors)
-                }}
-                className="flex-1 rounded-lg border border-border bg-surface-muted px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-surface-muted/80"
-              >
-                Reset
-              </button>
-              <button
-                onClick={onClose}
-                className="flex-1 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary-deep"
-              >
-                Okay
-              </button>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+    <input
+      ref={inputRef}
+      type="color"
+      defaultValue="#3887A8"
+      className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+      onChange={(e) => applyCustomTheme(e.target.value)}
+      onFocus={(e) => e.target.showPicker?.()}
+    />
   )
+}
+
+export function restoreCustomTheme() {
+  if (typeof window === "undefined") return
+  try {
+    const hex = localStorage.getItem("paw-custom-primary")
+    const css = localStorage.getItem("paw-custom-css")
+    if (hex && css) {
+      const style = document.querySelector<HTMLStyleElement>("style[data-theme]")
+      if (style) style.textContent = css
+    }
+  } catch {}
 }

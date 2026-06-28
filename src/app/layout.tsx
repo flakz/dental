@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sans.variable}>
       <head>
-        <style data-theme dangerouslySetInnerHTML={{ __html: themeCss }} />
+        <style data-theme suppressHydrationWarning dangerouslySetInnerHTML={{ __html: themeCss }} />
         <script dangerouslySetInnerHTML={{
           __html: `(function(){
   try {
