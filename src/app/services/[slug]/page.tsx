@@ -30,10 +30,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 const faqByCategory: Record<string, { q: string; a: string }[]> = {
   default: [
-    { q: "How quickly can you come?", a: "Same-day for most services in Krishnagiri town. Other locations usually within 24 hours. We confirm timing on the call." },
-    { q: "Do you bring your own equipment?", a: "Yes - every visit is self-contained. We carry our own setup, supplies, and cleanup. You don't need to prepare anything." },
-    { q: "What if my pet doesn't cooperate?", a: "We never force a visit. If your pet is anxious or reactive, we pause, talk to you, and either reschedule or send a specialist. No charge for the first re-visit." },
-    { q: "How is payment handled?", a: "No payment upfront. You pay after the visit via UPI, card, or cash. An itemised invoice is sent to your WhatsApp." },
+    { q: "Is the treatment painful?", a: "No — we use computer-controlled local anaesthesia that delivers the anaesthetic slowly and painlessly. For anxious patients, we offer sedation options. Most patients report zero discomfort." },
+    { q: "How long does a typical procedure take?", a: "Most procedures take 30-90 minutes depending on complexity. Root canals may take 60-90 minutes, scaling about 45 minutes, and fillings 30-60 minutes. We give you an accurate time estimate at booking." },
+    { q: "Do you accept insurance?", a: "Yes — we accept most major insurance plans. We provide an detailed invoice that you can submit for reimbursement. We also offer EMI options for larger treatments like implants and orthodontics." },
+    { q: "What if I need to cancel or reschedule?", a: "We ask for 4 hours notice for cancellations. There's no fee for rescheduling. Walk-ins are always welcome during clinic hours if you need urgent care." },
   ],
 }
 
@@ -104,15 +104,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-5 text-sm">
                 <div className="flex items-center gap-2 text-ink-soft">
                   <Check className="h-4 w-4 text-success" aria-hidden="true" />
-                  No payment upfront
+                  Payment after treatment
                 </div>
                 <div className="flex items-center gap-2 text-ink-soft">
                   <Check className="h-4 w-4 text-success" aria-hidden="true" />
-                  Free cancellation up to 4h before
+                  EMI options available
                 </div>
                 <div className="flex items-center gap-2 text-ink-soft">
                   <Check className="h-4 w-4 text-success" aria-hidden="true" />
-                  Background-verified caregivers
+                  Specialist-led care
                 </div>
               </div>
             </div>

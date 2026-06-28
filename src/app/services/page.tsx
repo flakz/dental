@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, PawPrint } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { services, type Service } from "@/lib/services"
 import { images } from "@/lib/images"
 import { site } from "@/lib/config"
@@ -10,7 +10,7 @@ import { CardsParallax } from "@/components/cards-parallax"
 
 export const metadata: Metadata = {
   title: "Services",
-  description: `One team for every kind of care your pet needs. ${services.length} services across ${site.city} and Tamil Nadu, with doorstep visits every day.`,
+  description: `From root canals to kids dentistry — ${services.length} dental services across Chennai and Bangalore. Specialist-led, painless, and affordable.`,
 }
 
 const categoryLabel: Record<Service["category"], string> = {
@@ -37,10 +37,10 @@ export default function ServicesPage() {
           <div className="max-w-2xl text-background">
             <span className="eyebrow on-dark">Our services</span>
             <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
-              One team for every kind of care your pet needs.
+              Complete dental care for every age.
             </h1>
             <p className="lead on-dark mt-5">
-              Browse by what your pet actually needs today. Starting prices below; final price depends on breed, size and add-ons, confirmed on booking.
+              Browse by category below. Starting prices listed; final cost depends on the case complexity, confirmed at consultation.
             </p>
           </div>
         </div>
