@@ -1,57 +1,39 @@
 import type { LinkItemType } from "@/components/sheard";
-import { HeartIcon, PhoneIcon, StarIcon, CalendarIcon } from "lucide-react";
+import { services } from "@/lib/services";
 
-export const serviceLinks: LinkItemType[] = [
-  {
-    label: "Boarding",
-    href: "/services/boarding",
-    description: "Overnight stays in a home-like space",
-    icon: <img src="/home1.png" alt="" className="h-7 w-7 object-contain" />,
-  },
-  {
-    label: "Grooming",
-    href: "/services/grooming",
-    description: "Bath, trim, nail clip and spa",
-    icon: <img src="/scissor.png" alt="" className="h-7 w-7 object-contain" />,
-  },
-  {
-    label: "Training",
-    href: "/services/training",
-    description: "Obedience, behaviour and socialisation",
-    icon: <img src="/training.png" alt="" className="h-7 w-7 object-contain" />,
-  },
-  {
-    label: "Walking",
-    href: "/services/walking",
-    description: "Daily walks with GPS tracking",
-    icon: <img src="/walk.png" alt="" className="h-7 w-7 object-contain" />,
-  },
-  {
-    label: "Fresh Food",
-    href: "/services/fresh-food",
-    description: "Vet-approved meals delivered daily",
-    icon: <img src="/food.png" alt="" className="h-7 w-7 object-contain" />,
-  },
-  {
-    label: "Pet Taxi",
-    href: "/services/taxi",
-    description: "Vet visits and airport transfers",
-    icon: <img src="/car.png" alt="" className="h-7 w-7 object-contain" />,
-  },
+// Old icon images from public/ — randomized across services
+const iconImages = [
+  "/home1.png", "/scissor.png", "/training.png", "/walk.png",
+  "/food.png", "/car.png", "/star.png", "/contact.png",
+  "/home.png", "/grooming.png", "/location.png", "/hours.png",
 ];
+
+// All services pulled dynamically from services.ts
+export const serviceLinks: LinkItemType[] = services.map((s, i) => ({
+  label: s.name,
+  href: `/services/${s.slug}`,
+  description: s.short,
+  icon: <img src={iconImages[i % iconImages.length]} alt="" className="h-7 w-7 object-contain" />,
+}));
 
 export const aboutLinks: LinkItemType[] = [
   {
     label: "About Us",
     href: "/about",
-    description: "Our story and the team behind PawSide",
+    description: "Our story and specialist team",
     icon: <img src="/home1.png" alt="" className="h-7 w-7 object-contain" />,
+  },
+  {
+    label: "Take a Tour",
+    href: "/take-a-tour",
+    description: "Virtual clinic walkthrough",
+    icon: <img src="/star.png" alt="" className="h-7 w-7 object-contain" />,
   },
   {
     label: "Feedback",
     href: "/feedback",
-    description: "Share your experience with us",
-    icon: <img src="/star.png" alt="" className="h-7 w-7 object-contain" />,
+    description: "Share your experience",
+    icon: <img src="/contact.png" alt="" className="h-7 w-7 object-contain" />,
   },
 ];
 
@@ -60,13 +42,13 @@ export const contactLinks: LinkItemType[] = [
     label: "Contact",
     href: "/contact",
     description: "Get in touch with us",
-    icon: <img src="/home1.png" alt="" className="h-7 w-7 object-contain" />,
+    icon: <img src="/location.png" alt="" className="h-7 w-7 object-contain" />,
   },
   {
-    label: "Book a Service",
+    label: "Book an Appointment",
     href: "/book",
-    description: "Schedule a visit for your pet",
-    icon: <img src="/star.png" alt="" className="h-7 w-7 object-contain" />,
+    description: "Schedule your dental visit",
+    icon: <img src="/hours.png" alt="" className="h-7 w-7 object-contain" />,
   },
 ];
 

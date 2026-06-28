@@ -18,7 +18,7 @@ export function DesktopNav() {
 						Services
 					</NavigationMenuTrigger>
 					<NavigationMenuContent className="p-1 pr-1.5">
-						<div className="rounded-lg grid w-lg grid-cols-2 gap-2 border border-border/50 bg-[var(--dropdown-inner)] p-2 shadow-md">
+						<div className="rounded-lg grid w-[48rem] max-h-[70vh] grid-cols-4 gap-2 overflow-y-auto border border-border/50 bg-[var(--dropdown-inner)] p-2 shadow-md">
 							{serviceLinks.map((item, i) => (
 								<NavigationMenuLink asChild className="hover:!bg-surface-muted focus:!bg-surface-muted" key={`item-${item.label}-${i}`}>
 									<LinkItem {...item} className="!flex-row !items-start !gap-3" />
@@ -32,7 +32,7 @@ export function DesktopNav() {
 									className="font-medium text-foreground hover:underline"
 									href="/book"
 								>
-									Book a consultation
+									Book an appointment
 								</a>
 							</p>
 							<a

@@ -66,10 +66,12 @@ export function MobileNav() {
 							))}
 						</div>
 						<div className="mt-5 flex flex-col gap-2">
-							<Button className="w-full" variant="outline">
-								Call us
+							<Button className="w-full" variant="outline" asChild>
+								<a href="tel:+919043753438">Call us</a>
 							</Button>
-							<Button className="w-full bg-primary text-primary-foreground">Book a service</Button>
+							<Button className="w-full bg-primary text-primary-foreground" asChild>
+								<a href="/book">Book an appointment</a>
+							</Button>
 						</div>
 					</div>
 				</Portal>
