@@ -1,36 +1,25 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowUpRight, Heart, ShieldCheck, Clock, Sparkles } from "lucide-react"
-import { site } from "@/lib/config"
-import { images } from "@/lib/images"
-import { Button } from "@/components/ui/button"
+import { Heart, ShieldCheck, Clock, Sparkles } from "lucide-react"
+import { team } from "@/lib/team"
 
 export const metadata: Metadata = {
   title: "About",
-  description: `PawSide started as JK Kennels in ${site.city} and grew into a doorstep pet care platform serving Tamil Nadu. Meet the team and the values.`,
+  description: `Painless dentistry, adopted from the UK, now in India. Meet the MDS-qualified specialists at Microsmiles.`,
 }
 
 const values = [
-  { icon: Heart, t: "We treat them like our own", d: "If it doesn't feel right for our own pets, we don't send it. The bar is simple." },
-  { icon: ShieldCheck, t: "Background-verified, observed", d: "Every caregiver is vetted, pet-first-aid trained, and observed on their first three visits." },
-  { icon: Clock, t: "Real humans, real fast", d: "We call back within an hour. No chatbots, no ticket numbers. The phone is the support." },
-  { icon: Sparkles, t: "Quietly excellent", d: "No flash, no show. The work speaks. We'd rather be recommended than advertised." },
+  { icon: Heart, t: "Painless, or it's on us", d: "If you feel pain during treatment, we stop, reassess, and adjust. Your comfort is non-negotiable." },
+  { icon: ShieldCheck, t: "Specialist-led, not generalist", d: "Every Microsmiles doctor is MDS-qualified in their field — not a general dentist doing everything." },
+  { icon: Clock, t: "See you within the hour", d: "Book online or walk in. We confirm your appointment within an hour of your first enquiry." },
+  { icon: Sparkles, t: "Upfront pricing, no surprises", d: "You get a clear treatment plan with costs before any procedure. No hidden charges, no surprises." },
 ]
 
 const milestones = [
-  { year: "2015", t: "JK Kennels, Krishnagiri", d: "Two founders, twelve dogs, one backyard. Boarding by word of mouth only." },
-  { year: "2019", t: "Doorstep grooming launches", d: "First mobile grooming van. We bring the bath to you, not the other way around." },
-  { year: "2022", t: "Rebrand to PawSide", d: "Adding training, walking, fresh food, taxi, and the gentle goodbye service." },
-  { year: "2024", t: "5,000+ pets across Tamil Nadu", d: "Bangalore, Chennai, Coimbatore. Same team, same standards, expanded footprint." },
-  { year: "2026", t: "8,000+ pets, 500+ caregivers", d: "Verified host families in 12 cities. Live GPS, photos, and 24×7 support across the board." },
-]
-
-const team = [
-  { name: "Karthik J.", role: "Founder, dog person", img: "puppy-two.jpeg" },
-  { name: "Meera R.", role: "Head of Caregivers", img: "puppy-three.jpeg" },
-  { name: "Arjun S.", role: "Grooming lead", img: "puppy-one.jpeg" },
-  { name: "Divya N.", role: "Vet-tech & training", img: "ZT-RFipewY9wuM.webp" },
+  { year: "2019", t: "First clinic in Anna Nagar", d: "Founded by UK-trained clinicians. Two chairs, one vision — painless dentistry." },
+  { year: "2021", t: "OMR Clinic opens", d: "Expanded to Semmancheri, OMR. Added digital x-ray and microscope-assisted treatments." },
+  { year: "2023", t: "Bangalore — Whitefield", d: "Crossed the state border. Third clinic opens in Whitefield, Bengaluru." },
+  { year: "2024", t: "11 specialists, 3 locations", d: "Team grows to 11 MDS doctors. 1,477+ Google reviews. 4.9★ rating." },
+  { year: "2026", t: "15,000+ smiles restored", d: "From root canals to full mouth rehabilitation — across Chennai and Bangalore." },
 ]
 
 export default function AboutPage() {
@@ -39,7 +28,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative isolate overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/A-blake-Y-b79Mg0O-4.webp" alt="A beagle puppy in the snow" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
+          <img src="/A-blake-Y-b79Mg0O-4.webp" alt="Dental clinic" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-foreground/10" />
           <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-surface to-transparent" />
         </div>
@@ -47,10 +36,10 @@ export default function AboutPage() {
           <div className="max-w-2xl text-background">
             <span className="eyebrow on-dark">About us</span>
             <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
-              A team of pet people, building the pet care we wished existed.
+              Painless dentistry, adopted from the UK, now in India.
             </h1>
             <p className="lead on-dark mt-5">
-              We're a Tamil Nadu team of caregivers, vet-techs, ops people and product folks, on a mission to make great pet care the default, not the exception.
+              We're a Chennai and Bangalore team of MDS-qualified specialists, on a mission to make every dental visit something you don't dread — but actually look forward to.
             </p>
           </div>
         </div>
@@ -62,24 +51,26 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
             <div className="p-[6px]">
               <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] shadow-sm">
-                <Image src={`/${images.kitten.file}`} alt={images.kitten.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                <div className="flex h-full w-full items-center justify-center bg-primary-soft text-[3rem] font-display font-medium text-primary-deep">
+                  MS
+                </div>
               </div>
             </div>
           </div>
           <div>
             <p className="eyebrow">Our story</p>
             <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
-              It started with a dog my parents said no to.
+              World-class dental care, closer to home.
             </h2>
             <div className="mt-7 space-y-5 text-lg leading-relaxed text-ink-soft">
               <p>
-                I'm Karthi, from Kanchipuram. Growing up, I wanted nothing more than a dog. My parents weren't convinced. So during college, I stayed at a friend's kennel for two months and never quite left.
+                Microsmiles was founded with one belief — that world-class dentistry shouldn't require a flight to another country. Our clinical director trained at the University of Edinburgh, UK, and brought back protocols that prioritise patient comfort above all.
               </p>
               <p>
-                That became JK Kennels in {site.city}, in 2015. A small boarding setup, twelve dogs, one backyard. We learned the hard way what families actually need when they travel, and the gap in the market for someone who'd treat their pet like their own.
+                In 2019, we opened our first clinic in Anna Nagar, Chennai. The response was overwhelming — patients travelled from across the city for painless root canals, implants, and paediatric care they couldn't find elsewhere.
               </p>
               <p>
-                In 2022 we rebranded to PawSide and started bringing the service to your door. Grooming first, then training, walking, fresh food, taxi, and the gentle goodbye. Same team, same standards.
+                Today we operate three clinics across Chennai and Bangalore, with a team of 11 MDS-qualified specialists covering endodontics, orthodontics, prosthodontics, and paediatric dentistry. Same team, same standards — just more smiles.
               </p>
             </div>
           </div>
@@ -109,6 +100,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Milestones */}
+      <section className="section-y-sm section-blend ">
+        <div className="container-page">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Our journey</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
+              From one chair to three clinics.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {milestones.map(({ year, t, d }) => (
+              <div key={year + t} className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-7">
+                <span className="font-display text-sm font-medium text-primary">{year}</span>
+                <h3 className="mt-2 font-display text-lg font-medium leading-tight tracking-tight">{t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Team */}
       <section className="section-y-sm section-blend ">
@@ -120,21 +132,22 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-4">
-            {team.map((t) => {
-              return (
-                <div key={t.name} className="overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
-                  <div className="p-[6px]">
-                    <div className="relative aspect-square overflow-hidden rounded-[20px] shadow-sm">
-                      <Image src={`/${t.img}`} alt={t.name} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
+            {team.map((t) => (
+              <div key={t.slug} className="overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
+                <div className="p-[6px]">
+                  <div className="relative aspect-square overflow-hidden rounded-[20px] shadow-sm">
+                    <div className="flex h-full w-full items-center justify-center bg-primary-soft text-[2rem] font-display font-medium text-primary-deep">
+                      {t.name.split(' ').map(n => n[0]).join('')}
                     </div>
                   </div>
-                  <div className="px-4 pb-4 pt-1">
-                    <p className="font-display text-base font-medium leading-tight tracking-tight">{t.name}</p>
-                    <p className="mt-0.5 text-xs text-ink-muted">{t.role}</p>
-                  </div>
                 </div>
-              )
-            })}
+                <div className="px-4 pb-4 pt-1">
+                  <p className="font-display text-base font-medium leading-tight tracking-tight">{t.name}</p>
+                  <p className="mt-0.5 text-xs text-ink-muted">{t.credentials}</p>
+                  <p className="text-xs text-primary">{t.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

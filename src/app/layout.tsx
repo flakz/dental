@@ -23,7 +23,11 @@ export const metadata: Metadata = {
   applicationName: site.brand,
   authors: [{ name: site.brand }],
   generator: "Next.js",
-  keywords: [site.brand, "pet care", "dog grooming", "pet boarding", "dog training", "Krishnagiri", "Tamil Nadu", "India"],
+  keywords: [
+    site.brand, "dental clinic", "dentist", "root canal", "dental implants",
+    "teeth whitening", "braces", "invisalign", "kids dentist",
+    "Chennai", "Bangalore", "India", "painless dentistry",
+  ],
   openGraph: {
     type: "website",
     locale: "en_IN",
