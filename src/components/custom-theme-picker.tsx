@@ -183,6 +183,7 @@ export function CustomThemePicker({ open, onClose }: CustomThemePickerProps) {
                 Okay
               </button>
             </div>
+          </motion.div>
         </>
       )}
     </AnimatePresence>
