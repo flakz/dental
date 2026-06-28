@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 const tourItems = [
-  { title: "Reception & Lounge", desc: "Welcome to Microsmiles. Our reception area is designed to feel warm and calming  -  not clinical. Comfortable seating, refreshments, and a friendly smile the moment you walk in.", img: "/clinic-reception.webp" },
+  { title: "Reception & Lounge", desc: "Our reception area is designed to feel warm and calming  -  not clinical. Comfortable seating, refreshments, and a friendly smile the moment you walk in.", img: "/clinic-reception.webp" },
   { title: "Consultation Rooms", desc: "Private consultation rooms where your doctor discusses diagnosis and treatment plans face-to-face. Digital x-ray viewers and 3D scans displayed on-screen for you to see.", img: "/service-root-canal.webp" },
   { title: "Treatment Rooms", desc: "State-of-the-art treatment rooms with digital dental chairs, microscopes for root canals, and laser equipment for gum surgeries. Sterilisation protocols visible and transparent.", img: "/hero-dental.webp" },
   { title: "Paediatric Zone", desc: "A dedicated, colourful zone for kids  -  child-sized chairs, ceiling-mounted TVs playing cartoons, and a gentle approach that makes dental visits something children actually enjoy.", img: "/service-kids.webp" },
@@ -27,9 +27,9 @@ export default function TakeATourPage() {
       <Reveal variant="fadeInUp" className="mx-auto max-w-3xl text-center">
         <span className="eyebrow">Take a Tour</span>
         <TextEffect per="word" preset="fade-in-blur" as="h1" className="mt-4 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
-          See Microsmiles up close.
+          See our clinic up close.
         </TextEffect>
-        <p className="lead mt-5">
+        <p className="lead mt-5 text-center">
           Modern clinics, specialist teams, and a patient-first environment. Take a visual walk through our multiple locations across Tamil Nadu.
         </p>
       </Reveal>
