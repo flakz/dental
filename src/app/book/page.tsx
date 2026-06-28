@@ -1,16 +1,14 @@
 import type { Metadata } from "next"
 import { site } from "@/lib/config"
-import { services } from "@/lib/services"
 import { ContactForm } from "@/components/contact-form"
 import { Check } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Book a service",
-  description: `Book doorstep pet care from ${site.brand} in 60 seconds. We confirm by phone within an hour. No payment upfront, no commitment.`,
+  title: "Book an Appointment",
+  description: `Book a dental appointment at Microsmiles Dental Care. Root canal, implants, scaling, braces, kids dentistry — ${site.city} and Bangalore.`,
 }
 
-const startingPrices = services.slice(0, 6)
-const serviceOptions = services.map((s) => ({ value: s.slug, label: s.name }))
+const serviceOptions = [] as { value: string; label: string }[]
 
 export default function BookPage() {
   return (
@@ -23,12 +21,12 @@ export default function BookPage() {
         </div>
         <div className="container-page pt-32 pb-20 lg:pt-40 lg:pb-24">
           <div className="max-w-2xl text-background">
-            <span className="eyebrow on-dark">Book a service</span>
-            <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
-              Book in 60 seconds. Confirmation by phone within an hour.
+            <span className="eyebrow on-dark">Book an Appointment</span>
+            <h1 className="text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
+              Book your appointment.
             </h1>
             <p className="lead on-dark mt-5">
-              Fill in the form, we'll match the right caregiver, and call you back to lock in time and final price. No payment upfront, no commitment.
+              Fill in the form and our team will reach out to confirm your visit at Microsmiles Dental Care.
             </p>
           </div>
         </div>
@@ -48,30 +46,36 @@ export default function BookPage() {
           <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6">
               <h3 className="mb-4 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-                Starting prices
+                Our Locations
               </h3>
-              <ul className="divide-y divide-border">
-                {startingPrices.map((s) => (
-                  <li key={s.slug} className="flex items-center justify-between py-3 text-sm">
-                    <span className="text-foreground">{s.name}</span>
-                    <span className="font-display font-medium">{s.startingPrice}</span>
-                  </li>
-                ))}
+              <ul className="divide-y divide-border text-sm">
+                <li className="py-3">
+                  <p className="font-medium text-foreground">Chennai — Anna Nagar</p>
+                  <p className="mt-1 text-ink-soft">Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.</p>
+                  <p className="mt-1 text-ink-muted">Mon — Sat: 12pm – 8pm (Sunday Off)</p>
+                </li>
+                <li className="py-3">
+                  <p className="font-medium text-foreground">Chennai — OMR</p>
+                  <p className="mt-1 text-ink-soft">4A 4B 4th Floor, S. C, Sai Selvaraj Complex, 1. Rajiv Gandhi Salai, Semmancheri, Near Sathyabama University, Chennai, Tamil Nadu 600119.</p>
+                  <p className="mt-1 text-ink-muted">Mon — Sun: 11am – 8pm (Wednesday Off)</p>
+                </li>
+                <li className="py-3">
+                  <p className="font-medium text-foreground">Bangalore — Whitefield</p>
+                  <p className="mt-1 text-ink-soft">No: 17, Varthur Main Rd, Kumarapalli, Thubarahalli, Whitefield, Bengaluru, Karnataka 560 066.</p>
+                  <p className="mt-1 text-ink-muted">Mon — Sun: 11am – 8pm (Wednesday Off)</p>
+                </li>
               </ul>
-              <p className="mt-4 text-xs text-ink-muted">
-                Final price depends on breed, size and add-ons. We confirm on the call.
-              </p>
             </div>
             <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6">
               <h3 className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-                You're protected
+                Contact
               </h3>
               <ul className="space-y-2.5 text-sm text-ink-soft">
                 {[
-                  "Background-verified caregivers",
-                  "Free cancellation up to 4h before",
+                  "Chennai: +91 90437 53438",
+                  "Bangalore: +91 81473 80814",
                   "No payment upfront",
-                  "Real-time updates on every visit",
+                  "Same-day appointments available",
                 ].map((t) => (
                   <li key={t} className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-success" aria-hidden="true" />

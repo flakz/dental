@@ -1,17 +1,30 @@
 import type { Metadata } from "next"
-import { site } from "@/lib/config"
 import { ContactForm } from "@/components/contact-form"
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Talk to a real person at ${site.brand}. Call, WhatsApp, email, or visit us in ${site.city}. We respond within an hour during the day.`,
+  title: "Contact Us",
+  description: `Get in touch with Microsmiles Dental Care. Visit us in Chennai or Bangalore, or call to book your dental appointment.`,
 }
 
-const channels = [
-  { icon: <img src="/contact.png" alt="" className="h-5 w-5 object-contain" />, label: "Phone", value: site.phone, href: `tel:${site.phone.replace(/\s+/g, "")}` },
-  { icon: <img src="/mail.png" alt="" className="h-5 w-5 object-contain" />, label: "Email", value: site.email, href: `mailto:${site.email}` },
-  { icon: <img src="/location.png" alt="" className="h-5 w-5 object-contain" />, label: "Visit", value: site.address, href: null },
-  { icon: <img src="/hours.png" alt="" className="h-5 w-5 object-contain" />, label: "Hours", value: site.hours, href: null },
+const locations = [
+  {
+    name: "Chennai — Anna Nagar",
+    address: "Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.",
+    phone: "+91 90437 53438",
+    hours: "Mon — Sat: 12pm – 8pm (Sunday Off)",
+  },
+  {
+    name: "Chennai — OMR",
+    address: "4A 4B 4th Floor, S. C, Sai Selvaraj Complex, 1. Rajiv Gandhi Salai, Semmancheri, Near Sathyabama University, Chennai, Tamil Nadu 600119.",
+    phone: "+91 90437 53438",
+    hours: "Mon — Sun: 11am – 8pm (Wednesday Off)",
+  },
+  {
+    name: "Bangalore — Whitefield",
+    address: "No: 17, Varthur Main Rd, Kumarapalli, Thubarahalli, Whitefield, Bengaluru, Karnataka 560 066.",
+    phone: "+91 81473 80814",
+    hours: "Mon — Sun: 11am – 8pm (Wednesday Off)",
+  },
 ]
 
 export default function ContactPage() {
@@ -49,35 +62,19 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-3">
-            {channels.map((c) => {
-              const inner = (
-                <>
-                  <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-primary-soft text-primary-deep">
-                    {c.icon}
-                  </span>
-                  <div>
-                    <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">{c.label}</p>
-                    <p className="mt-1 font-display text-lg font-medium leading-snug text-foreground">{c.value}</p>
-                  </div>
-                </>
-              )
-              return c.href ? (
-                <a
-                  key={c.label}
-                  href={c.href}
-                  className="flex items-start gap-4 rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-5 transition-colors hover:border-ink"
-                >
-                  {inner}
+            {locations.map((loc) => (
+              <div
+                key={loc.name}
+                className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-5"
+              >
+                <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">{loc.name}</p>
+                <p className="mt-2 text-sm text-ink-soft">{loc.address}</p>
+                <a href={`tel:${loc.phone.replace(/\s+/g, "")}`} className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">
+                  {loc.phone}
                 </a>
-              ) : (
-                <div
-                  key={c.label}
-                  className="flex items-start gap-4 rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-5"
-                >
-                  {inner}
-                </div>
-              )
-            })}
+                <p className="mt-1 text-xs text-ink-muted">{loc.hours}</p>
+              </div>
+            ))}
           </aside>
         </div>
       </section>

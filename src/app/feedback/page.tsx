@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { Check, Phone } from "lucide-react"
 import { site } from "@/lib/config"
 import { FeedbackForm } from "@/components/feedback-form"
 
 export const metadata: Metadata = {
-  title: "Leave a review",
-  description: `Tell us how your ${site.brand} visit went. Good or bad, we read every one and call back within an hour.`,
+  title: "Share Your Feedback",
+  description: `Rate your experience at Microsmiles Dental Care. Your feedback helps us improve every visit.`,
 }
 
 export default function FeedbackPage() {
@@ -21,11 +20,11 @@ export default function FeedbackPage() {
         <div className="container-page pt-32 pb-20 lg:pt-40 lg:pb-24">
           <div className="max-w-2xl text-background">
             <span className="eyebrow on-dark">Your feedback</span>
-            <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
-              How did we do?
+            <h1 className="text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
+              How was your visit?
             </h1>
             <p className="lead on-dark mt-5">
-              Your review helps other pet parents find us. Good or bad, we read every one and call back if it wasn't great.
+              Your feedback helps us make every visit better. Share your experience at Microsmiles Dental Care.
             </p>
           </div>
         </div>
