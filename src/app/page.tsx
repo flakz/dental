@@ -25,6 +25,7 @@ import { Reveal } from "@/components/motion/reveal"
 import { Stagger, StaggerItem } from "@/components/motion/stagger"
 import { HoverLift } from "@/components/motion/hover-lift"
 import { ParallaxY } from "@/components/motion/parallax-y"
+import { ParallaxCard, ParallaxImage } from "@/components/motion/parallax-card"
 import { TextEffect } from "@/components/core/text-effect"
 
 const stats = [
@@ -61,7 +62,7 @@ export default function HomePage() {
           HERO
           ============================================================ */}
       <section className="relative isolate section-blend">
-        <div className="container-page grid gap-12 pb-10 pt-28 md:pb-10 md:pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div className="container-page grid gap-12 pb-2.5 pt-28 md:pb-2.5 md:pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div className="flex flex-col justify-start">
             <Stagger stagger={0.08} delay={0.1}>
               <StaggerItem>
@@ -140,23 +141,23 @@ export default function HomePage() {
             </Reveal>
 
             {/* Floating stat card */}
-            <Reveal variant="slideInLeft" delay={0.6} className="absolute -left-6 bottom-10 hidden sm:flex">
-              <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-4 shadow-[var(--shadow-md)] sm:flex sm:items-center sm:gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-primary-soft text-primary-deep">
-                  <div className="h-6 w-6" style={{ backgroundColor: "var(--paw-primary)", maskImage: "url(/home1.png)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url(/home1.png)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+            <Reveal variant="slideInLeft" delay={0.6} className="absolute -left-3 -bottom-6 sm:-left-6 sm:bottom-10 flex">
+              <div className="rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-3 shadow-[var(--shadow-md)] sm:p-4 flex items-center gap-2 sm:gap-3">
+                <div className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-full bg-primary-soft text-primary-deep">
+                  <div className="h-5 w-5 sm:h-6 sm:w-6" style={{ backgroundColor: "var(--paw-primary)", maskImage: "url(/home1.png)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url(/home1.png)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 </div>
                 <div>
-                  <p className="font-display text-lg font-medium leading-none">15,000+ smiles</p>
-                  <p className="mt-1 text-xs text-ink-muted">restored across Tamil Nadu</p>
+                  <p className="font-display text-base sm:text-lg font-medium leading-none">15,000+ smiles</p>
+                  <p className="mt-1 text-[10px] sm:text-xs text-ink-muted">restored across Tamil Nadu</p>
                 </div>
               </div>
             </Reveal>
 
             {/* Floating review pill */}
-            <Reveal variant="slideInRight" delay={0.5} className="absolute -right-4 top-8 hidden sm:flex">
-              <div className="rounded-full border border-border bg-surface-elevated px-3 py-1.5 shadow-[var(--shadow-sm)] sm:flex sm:items-center sm:gap-1.5">
-                <ShieldCheck className="h-3.5 w-3.5 text-success" aria-hidden="true" />
-                <span className="text-xs font-medium">UK-trained specialists</span>
+            <Reveal variant="slideInRight" delay={0.5} className="absolute -right-3 top-4 sm:-right-4 sm:top-8 flex">
+              <div className="rounded-full border border-border bg-surface-elevated px-2.5 py-1 sm:px-3 sm:py-1.5 shadow-[var(--shadow-sm)] flex items-center gap-1 sm:gap-1.5">
+                <ShieldCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-success" aria-hidden="true" />
+                <span className="text-[10px] sm:text-xs font-medium">UK-trained specialists</span>
               </div>
             </Reveal>
           </div>
@@ -166,7 +167,7 @@ export default function HomePage() {
       {/* ============================================================
           SERVICES
           ============================================================ */}
-      <section className="section-y-sm section-blend">
+      <section className="pt-2.5 section-blend">
         <div className="container-page">
           <Reveal variant="slideBlurUp">
             <SectionHeading alignment="left" className="max-w-3xl">
@@ -206,12 +207,12 @@ export default function HomePage() {
               })}
             </CardsParallax>
           </div>
-          <Stagger stagger={0.05} className="mt-12 hidden lg:grid lg:grid-cols-4 lg:gap-4">
+          <div className="mt-12 hidden lg:grid lg:grid-cols-4 lg:gap-4">
             {services.map((s) => {
               const key = s.slug as keyof typeof images
               const img = (images as any)[key] ?? images.kitten
               return (
-                <StaggerItem key={s.slug}>
+                <ParallaxCard key={s.slug} imageOffset={[20, -20]}>
                   <HoverLift>
                     <Link href={`/services/${s.slug}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
                       <div className="p-[6px]">
@@ -229,10 +230,10 @@ export default function HomePage() {
                       </div>
                     </Link>
                   </HoverLift>
-                </StaggerItem>
+                </ParallaxCard>
               )
             })}
-          </Stagger>
+          </div>
         </div>
       </section>
 
@@ -242,7 +243,7 @@ export default function HomePage() {
       <section className="section-y-sm section-blend">
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <div className="relative">
-            <Reveal variant="clipReveal">
+            <Reveal variant="slideInLeft">
               <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
                 <div className="p-[6px]">
                   <div className="aspect-[5/6] overflow-hidden rounded-[24px] shadow-sm">
@@ -257,10 +258,10 @@ export default function HomePage() {
                 </div>
               </div>
             </Reveal>
-            <Reveal variant="popIn" delay={0.5} className="absolute -bottom-6 -right-6 hidden sm:block">
-              <div className="rounded-[var(--radius-xl)] bg-surface-elevated p-5 text-foreground shadow-[var(--shadow-lg)]">
-                <p className="font-display text-3xl font-medium leading-none">15+ years</p>
-                <p className="mt-1.5 text-xs text-ink-muted">Of painless dentistry, in {site.city}</p>
+            <Reveal variant="popIn" delay={0.5} className="absolute -bottom-4 left-4 sm:-bottom-6 sm:-right-6 sm:left-auto">
+              <div className="rounded-[var(--radius-xl)] bg-surface-elevated p-4 sm:p-5 text-foreground shadow-[var(--shadow-lg)]">
+                <p className="font-display text-2xl sm:text-3xl font-medium leading-none">15+ years</p>
+                <p className="mt-1.5 text-[10px] sm:text-xs text-ink-muted">Of painless dentistry, in {site.city}</p>
               </div>
             </Reveal>
           </div>
