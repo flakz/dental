@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, Star, ShieldCheck, Clock, Heart, PawPrint, Check } from "lucide-react"
+import { ArrowUpRight, Star, ShieldCheck, Clock, Heart, Sparkles, Check } from "lucide-react"
 import { site } from "@/lib/config"
 import { services, type Service } from "@/lib/services"
 import { images } from "@/lib/images"
+import { testimonials } from "@/lib/testimonials"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -18,76 +19,25 @@ import FAQ2 from "@/components/watermelon-ui/faq-2"
 import { CardsParallax } from "@/components/cards-parallax"
 
 const stats = [
-  { value: "4.9", suffix: "★", label: "Google rating", detail: "1,200+ reviews" },
-  { value: "8,000", suffix: "+", label: "Pets cared for", detail: "Across Tamil Nadu" },
-  { value: "8am – 8pm", suffix: "", label: "Open every day", detail: "Including holidays" },
+  { value: "4.9", suffix: "★", label: "Google rating", detail: "1,477+ reviews" },
+  { value: "15,000", suffix: "+", label: "Smiles restored", detail: "Across Chennai & Bangalore" },
+  { value: "12pm – 8pm", suffix: "", label: "Open every day", detail: "Anna Nagar & OMR (Mon–Sat)" },
 ]
 
 const steps = [
-  { n: "01", title: "Tell us about your pet", body: "Share breed, age, quirks and what they need. Booking takes 60 seconds." },
-  { n: "02", title: "We match the right caregiver", body: "Our team picks a trained, background-verified pro near you in Krishnagiri." },
-  { n: "03", title: "Confirm by phone in an hour", body: "We call to lock in time, final price and any special instructions." },
-  { n: "04", title: "Updates, photos, real humans", body: "Live GPS, photos, and a 24×7 support line if anything comes up." },
-]
-
-const testimonials = [
-  {
-    name: "Aditi R.",
-    role: "Koramangala · Dog mom to Banno",
-    rating: 5,
-    quote: "Banno came back from grooming calmer than she's ever been. The groomer brought her own setup, didn't rush, and sent photos mid-bath. Genuinely the most thoughtful pet service I've used.",
-  },
-  {
-    name: "Karthik M.",
-    role: "HSR Layout · Boarding for Simba",
-    rating: 5,
-    quote: "Left Simba for ten days over a work trip. Daily videos, same feeding routine, and the host family sent a goodbye photo. The anxiety I'd built up about it was completely unfounded.",
-  },
-  {
-    name: "Sneha V.",
-    role: "Kanchipuram · Training for Pluto",
-    rating: 5,
-    quote: "Pluto used to lunge at every other dog. After six sessions in our apartment, he walks past street dogs like they're furniture. The trainer gave us a plan we could actually keep up with.",
-  },
-  {
-    name: "Rohan S.",
-    role: "Krishnagiri · Walking for Cooper",
-    rating: 5,
-    quote: "Cooper's walker is the same person every morning. Cooper waits by the gate at 6:55am. The GPS report card at the end of the walk is a small touch that makes a huge difference.",
-  },
-  {
-    name: "Priya K.",
-    role: "Chennai · Fresh food for Milo",
-    rating: 5,
-    quote: "Milo's a fussy eater and we'd tried everything. The fresh food from PawSide was the first time he finished his bowl in months. The insulated packaging keeps it fresh even in Chennai heat.",
-  },
-  {
-    name: "Vikram T.",
-    role: "Bangalore · Taxi for Luna",
-    rating: 5,
-    quote: "Luna hates car rides. The PawSide taxi driver was patient, had a non-slip mat ready, and played soft music the whole way. She arrived at the vet calmer than I expected.",
-  },
-  {
-    name: "Meera J.",
-    role: "Hosur · Boarding for Tucker",
-    rating: 5,
-    quote: "We had a family emergency and needed Tucker placed same-day. PawSide found a host family within two hours. Tucker came back happy, and the host still sends us updates.",
-  },
-  {
-    name: "Arjun N.",
-    role: "Coimbatore · Grooming for Zoya",
-    rating: 5,
-    quote: "Zoya's coat was a mess after monsoon. The groomer handled her mats gently, didn't shave her down, and gave us a brushing schedule. Three weeks later her coat looks better than ever.",
-  },
+  { n: "01", title: "Book an appointment", body: "Call us, WhatsApp, or use the online form. We confirm within the hour with a time slot that works for you." },
+  { n: "02", title: "Walk in for your visit", body: "Our friendly team greets you, a digital x-ray is taken if needed, and the doctor does a thorough examination." },
+  { n: "03", title: "Custom treatment plan", body: "Your dentist explains the diagnosis, treatment options, timeline and cost — no pressure, no hidden charges." },
+  { n: "04", title: "Painless treatment", body: "Using UK-adopted painless protocols, we perform your procedure. Walk out smiling the same day." },
 ]
 
 
 const faqs = [
-  { q: "Do you serve outside Krishnagiri?", a: "Yes. We cover Krishnagiri town and most of Krishnagiri district, plus select areas of Hosur, Bangalore (Koramangala, HSR, Indiranagar), Chennai and Kanchipuram. Add your pincode at booking and we'll confirm availability." },
-  { q: "How do I know my caregiver is trustworthy?", a: "Every PawSide caregiver is background-verified, trained in pet first-aid, and observed on their first three visits. We share the caregiver's name, photo and rating before the visit, and you can message them directly." },
-  { q: "What's the booking and payment flow?", a: "Book in 60 seconds, get a confirmation call within an hour. No payment upfront. You pay after the visit via UPI, card or cash. Cancellation is free up to 4 hours before the visit." },
-  { q: "What if my pet needs urgent care?", a: "We have a 24×7 support line and on-call vet-techs. For emergencies we help you reach the nearest partner clinic and stay on the line with you until your pet is seen." },
-  { q: "Is the fresh food really fresh?", a: "Yes - meals are cooked the morning of delivery in our partner kitchen in Krishnagiri. Ingredients are vet-approved, human-grade, and free of preservatives. We deliver in insulated boxes that keep food safe for 6 hours." },
+  { q: "Is the treatment really painless?", a: "Yes — we use UK-adopted painless protocols including topical anaesthetic gel before the injection, computer-controlled local anaesthesia, and sedation options for anxious patients. Most patients report zero pain during procedures." },
+  { q: "How do I book an appointment?", a: "You can call us, send a WhatsApp message, or use the booking form on this site. We confirm your slot within an hour. Walk-ins are also welcome during clinic hours." },
+  { q: "What payment options are available?", a: "We accept cash, UPI, debit/credit cards, and most insurance plans. We provide an itemised invoice for insurance claims. EMI options available for implant and orthodontic treatments." },
+  { q: "How often should I visit the dentist?", a: "We recommend a check-up and professional cleaning every 6 months. However, if you have specific concerns — pain, bleeding gums, sensitivity — don't wait for the next scheduled visit." },
+  { q: "Do you treat children?", a: "Absolutely — we have a dedicated paediatric team led by Dr. Rajesh (MDS, PhD), our Chief Pediatric Dentist. We specialise in making dental visits fun and fear-free for kids." },
 ]
 
 const categoryLabel: Record<Service["category"], string> = {
@@ -106,8 +56,8 @@ export default function HomePage() {
           <div className="flex flex-col justify-start">
             <div className="flex items-center gap-3">
               <Badge variant="secondary" className="rounded-full bg-primary-soft px-3 py-1 text-primary-deep hover:bg-primary-soft">
-                <PawPrint className="mr-1 h-3 w-3" aria-hidden="true" />
-                Doorstep · {site.city}
+                <Sparkles className="mr-1 h-3 w-3" aria-hidden="true" />
+                Painless Dentistry · {site.city}
               </Badge>
               <span className="inline-flex items-center gap-1 text-xs text-ink-muted">
                 <Star className="h-3 w-3 fill-current text-accent" aria-hidden="true" />
@@ -116,18 +66,18 @@ export default function HomePage() {
             </div>
 
             <h1 className="mt-6 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[0.98] tracking-[-0.025em]">
-              Pet care,{" "}
-              <span className="text-primary">the way it should be.</span>
+              You smile,{" "}
+              <span className="text-primary">we smile.</span>
             </h1>
 
             <p className="lead mt-7" style={{ maxWidth: 587 }}>
-              Grooming, boarding, training, walking, fresh food, taxi and a gentle goodbye, from one trusted team that treats your pet like their own. <span className="text-primary font-medium">Previously JK Kennels.</span> Doorstep across Tamil Nadu, every day of the week.
+              Root canal, implants, crowns, braces, invisalign, and kids dentistry — from one trusted team of specialists. <span className="text-primary font-medium">UK-adopted painless protocols.</span> Across Chennai and Bangalore, every day except Sunday.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Button asChild className="group bg-primary text-primary-foreground shadow-[var(--shadow-cta)] hover:bg-primary-deep">
                 <Link href="/book">
-                  Book a service
+                  Book Appointment
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </Link>
               </Button>
@@ -173,15 +123,15 @@ export default function HomePage() {
                 <img src="/home1.png" alt="" className="h-6 w-6 object-contain" />
               </div>
               <div>
-                <p className="font-display text-lg font-medium leading-none">8,000+ pets</p>
-                <p className="mt-1 text-xs text-ink-muted">cared for across Tamil Nadu</p>
+                <p className="font-display text-lg font-medium leading-none">15,000+ smiles</p>
+                <p className="mt-1 text-xs text-ink-muted">restored across Chennai &amp; Bangalore</p>
               </div>
             </div>
 
             {/* Floating review pill */}
             <div className="absolute -right-4 top-8 hidden rounded-full border border-border bg-surface-elevated px-3 py-1.5 shadow-[var(--shadow-sm)] sm:flex sm:items-center sm:gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-success" aria-hidden="true" />
-              <span className="text-xs font-medium">Verified caregivers</span>
+              <span className="text-xs font-medium">UK-trained specialists</span>
             </div>
           </div>
         </div>
@@ -195,10 +145,10 @@ export default function HomePage() {
           <SectionHeading alignment="left" className="max-w-3xl">
             <SectionHeadingTagline>What we do</SectionHeadingTagline>
             <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
-              One team for every kind of care your pet needs.
+              One team for every kind of care your teeth need.
             </SectionHeadingTitle>
             <SectionHeadingBody>
-              Starting prices below. Final price depends on breed, size and add-ons, confirmed when we call you back.
+              Starting prices below. Final price depends on the procedure, confirmed during your consultation.
             </SectionHeadingBody>
           </SectionHeading>
 
@@ -255,7 +205,7 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          WHY PAWSIDE - split image + copy
+          WHY MICROSMILES - split image + copy
           ============================================================ */}
       <section className="section-y-sm section-blend">
         <div className="container-page grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
@@ -274,26 +224,25 @@ export default function HomePage() {
               </div>
             </div>
             <div className="absolute -bottom-6 -right-6 hidden rounded-[var(--radius-xl)] bg-surface-elevated p-5 text-foreground shadow-[var(--shadow-lg)] sm:block">
-              <p className="font-display text-3xl font-medium leading-none">10+ years</p>
-              <p className="mt-1.5 text-xs text-ink-muted">Of JK Kennels & PawSide, in {site.city}</p>
+              <p className="font-display text-3xl font-medium leading-none">15+ years</p>
+              <p className="mt-1.5 text-xs text-ink-muted">Of painless dentistry, in {site.city}</p>
             </div>
           </div>
 
           <div>
-            <p className="eyebrow">Why PawSide</p>
+            <p className="eyebrow">Why Microsmiles</p>
             <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
-              Built by pet people, for pet people.{" "}
-              <span className="serif-italic text-primary font-semibold">No shortcuts.</span>
+              Led by specialists, <span className="serif-italic text-primary font-semibold">built for comfort.</span>
             </h2>
             <p className="lead mt-6" style={{ maxWidth: 624 }}>
-              We started as a small kennel in Krishnagiri in 2015, and grew into a full doorstep service because the alternatives let us down. Every visit, every meal, every walk - built around what we'd want for our own pets.
+              Microsmiles was founded by clinicians trained in the UK, bringing world-class painless dentistry to India. Every procedure, every protocol — designed around your comfort.
             </p>
 
             <ul className="mt-9 space-y-4">
               {[
-                { icon: ShieldCheck, t: "Background-verified, pet-first-aid trained", d: "Every caregiver is vetted, observed, and rated after every visit." },
-                { icon: Clock, t: "Live updates on every visit", d: "GPS route, photos, and a real report card before the walker leaves your gate." },
-                { icon: Heart, t: "We treat them like our own", d: "If something doesn't feel right, we don't send them. Simple as that." },
+                { icon: ShieldCheck, t: "UK-trained, specialist-led team", d: "Every doctor is MDS-qualified. Our clinical director trained at the University of Edinburgh." },
+                { icon: Clock, t: "Painless protocols, guaranteed", d: "From local anaesthesia to sedation options — we make sure you feel nothing." },
+                { icon: Heart, t: "Your smile, our priority", d: "We explain everything upfront. No hidden costs, no pressure, just honest dental care." },
               ].map(({ icon: Icon, t, d }) => (
                 <li key={t} className="flex items-start gap-4">
                   <span className="mt-0.5 grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-border bg-surface-elevated text-primary">
@@ -318,7 +267,7 @@ export default function HomePage() {
           <SectionHeading alignment="center" className="mx-auto max-w-2xl">
             <SectionHeadingTagline>How it works</SectionHeadingTagline>
             <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
-              From booking to belly rub in four steps.
+              From booking to a brighter smile in four steps.
             </SectionHeadingTitle>
           </SectionHeading>
 
@@ -337,15 +286,15 @@ export default function HomePage() {
 
 
       {/* ============================================================
-          TWITTER SOCIAL PROOF — Supabase-style
+          TWITTER SOCIAL PROOF — Patient testimonials
           ============================================================ */}
       <section className="py-10">
         <div className="container-page">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <SectionHeading alignment="center">
-              <SectionHeadingTagline>Loved by pet parents</SectionHeadingTagline>
+              <SectionHeadingTagline>Loved by patients</SectionHeadingTagline>
               <SectionHeadingTitle as="h2" className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.02em]">
-                What they say about us.
+                What our patients say about us.
               </SectionHeadingTitle>
             </SectionHeading>
           </div>
@@ -387,7 +336,7 @@ export default function HomePage() {
       <FAQ2
         badge="FAQ"
         title="Answers to the questions we hear most."
-        subtitle="Can't find what you're looking for? We answer every WhatsApp and call during the day."
+        subtitle="Can't find what you're looking for? We answer every WhatsApp and call during clinic hours."
         categories={[
           {
             id: "general",
