@@ -7,7 +7,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import { ThemeSwitcher } from "@/components/theme-switcher"
-import { Preloader } from "@/components/preloader"
 import "./globals.css"
 
 const sans = Bricolage_Grotesque({
@@ -72,7 +71,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         }} />
       </head>
       <body className="font-sans bg-surface text-foreground antialiased">
-        <Preloader />
         <a className="skip" href="#main">Skip to content</a>
         <Header />
         <SmoothScroll>
