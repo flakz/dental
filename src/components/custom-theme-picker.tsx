@@ -166,10 +166,23 @@ export function CustomThemePicker({ open, onClose }: CustomThemePickerProps) {
               ))}
             </div>
 
-            <p className="mt-4 text-[10px] text-ink-muted text-center">
-              Pick your primary color — other colors are auto-derived
-            </p>
-          </motion.div>
+            <div className="mt-4 flex gap-2">
+              <button
+                onClick={() => {
+                  setColors({ ...defaultColors })
+                  applyTheme(defaultColors)
+                }}
+                className="flex-1 rounded-lg border border-border bg-surface-muted px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-surface-muted/80"
+              >
+                Reset
+              </button>
+              <button
+                onClick={onClose}
+                className="flex-1 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary-deep"
+              >
+                Okay
+              </button>
+            </div>
         </>
       )}
     </AnimatePresence>
