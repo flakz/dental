@@ -9,7 +9,7 @@ import { TextEffect } from "@/components/core/text-effect"
 
 const values = [
   { icon: Heart, t: "Painless, or it's on us", d: "If you feel pain during treatment, we stop, reassess, and adjust. Your comfort is non-negotiable." },
-  { icon: ShieldCheck, t: "Specialist-led, not generalist", d: "Every Microsmiles doctor is MDS-qualified in their field  -  not a general dentist doing everything." },
+  { icon: ShieldCheck, t: "Specialist-led, not generalist", d: "Every doctor is MDS-qualified in their field  -  not a general dentist doing everything." },
   { icon: Clock, t: "See you within the hour", d: "Book online or walk in. We confirm your appointment within an hour of your first enquiry." },
   { icon: Sparkles, t: "Upfront pricing, no surprises", d: "You get a clear treatment plan with costs before any procedure. No hidden charges, no surprises." },
 ]
@@ -71,13 +71,13 @@ export function AboutContent() {
               </h2>
               <div className="mt-7 space-y-5 text-lg leading-relaxed text-ink-soft">
                 <p>
-                  Microsmiles was founded with one belief  -  that world-class dentistry shouldn't require a flight to another country. Our clinical director trained at the University of Edinburgh, UK, and brought back protocols that prioritise patient comfort above all.
+                  Our clinic was founded with one belief  -  that world-class dentistry shouldn't require a flight to another country. Our clinical director trained in the UK, and brought back protocols that prioritise patient comfort above all.
                 </p>
                 <p>
-                  In 2019, we opened our first clinic in Tamil Nadu. The response was overwhelming  -  patients travelled from across the city for painless root canals, implants, and paediatric care they couldn't find elsewhere.
+                  We opened our first clinic in Tamil Nadu. The response was overwhelming  -  patients travelled from across the city for painless root canals, implants, and paediatric care they couldn't find elsewhere.
                 </p>
                 <p>
-                  Today we operate across Tamil Nadu, with a team of 11 MDS-qualified specialists covering endodontics, orthodontics, prosthodontics, and paediatric dentistry. Same team, same standards  -  just more smiles.
+                  Today we operate across Tamil Nadu, with a team of MDS-qualified specialists covering endodontics, orthodontics, prosthodontics, and paediatric dentistry. Same team, same standards  -  just more smiles.
                 </p>
               </div>
             </div>
