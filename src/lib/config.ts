@@ -2,18 +2,20 @@
 
 import { content } from "@/lib/content"
 
-export const site = content('CONFIG', {
-  brand: 'Microsmiles Dental Care',
+// Individual env vars override specific fields (easiest for future clients)
+// Full JSON override via CONTENT_CONFIG env var
+const baseConfig = {
+  brand: process.env.NEXT_PUBLIC_BRAND ?? 'Microsmiles Dental Care',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://microsmiles-demo.vercel.app',
-  tagline: 'You Smile, We Smile — Painless Dentistry',
+  tagline: 'You Smile, We Smile  -  Painless Dentistry',
   description:
-    'Microsmiles Dental Care offers painless dentistry adopted from UK, now in India. Root canal, implants, crowns, braces, invisalign, kids dentistry, and more across Chennai and Bangalore.',
+    'Microsmiles Dental Care offers painless dentistry adopted from UK, now in India. Root canal, implants, crowns, braces, invisalign, kids dentistry, and more across Tamil Nadu.',
   region: 'India',
   city: 'Chennai',
-  phone: '+91 90437 53438',
+  phone: process.env.NEXT_PUBLIC_PHONE ?? '+91 90437 53438',
   email: 'microsmilesdental@gmail.com',
   address: 'Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.',
-  hours: 'Mon — Sat: 12pm – 8pm (Sunday Off)',
+  hours: 'Mon  -  Sat: 12pm – 8pm (Sunday Off)',
   social: {
     instagram: 'https://www.instagram.com/microsmilesdental',
     facebook: 'https://facebook.com/microsmilesdental',
@@ -26,7 +28,9 @@ export const site = content('CONFIG', {
     topic: process.env.NEXT_PUBLIC_NTFY_TOPIC ?? 'dental-demo-form-x7k9p2',
     feedbackTopic: process.env.NEXT_PUBLIC_NTFY_FEEDBACK_TOPIC ?? 'dental-demo-feedback-x7k9p2',
   },
-})
+}
+
+export const site = content('CONFIG', baseConfig)
 
 export function ntfyEndpoint(form: 'contact' | 'book'): string {
   return `${site.ntfy.server}/${site.ntfy.topic}-${form}`;

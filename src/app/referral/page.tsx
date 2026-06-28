@@ -19,7 +19,7 @@ export default function ReferralPage() {
           Refer your patients <span className="text-primary">with confidence.</span>
         </h1>
         <p className="lead mt-5">
-          Microsmiles accepts referrals from general dentists and physicians across Chennai and Bangalore. Specialist-led care, detailed reports, and seamless coordination — your patient returns to you for routine care after treatment.
+          Microsmiles accepts referrals from general dentists and physicians across Tamil Nadu. Specialist-led care, detailed reports, and seamless coordination  -  your patient returns to you for routine care after treatment.
         </p>
       </div>
 

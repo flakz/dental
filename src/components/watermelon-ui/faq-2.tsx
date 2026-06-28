@@ -75,7 +75,7 @@ export default function FAQ2({
   };
 
   return (
-    <section className="section-y-sm section-blend">
+    <section className="section-y-sm section-blend pt-0">
       <div className="container-page">
         <div className="mx-auto mb-10 max-w-xl text-center md:mb-12">
           <p className="eyebrow justify-center">{badge}</p>

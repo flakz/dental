@@ -5,6 +5,7 @@ import { loadTheme, generateThemeCss } from "@/lib/theme"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
+import { ThemeSwitcher } from "@/components/theme-switcher"
 import "./globals.css"
 
 const sans = Bricolage_Grotesque({
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   keywords: [
     site.brand, "dental clinic", "dentist", "root canal", "dental implants",
     "teeth whitening", "braces", "invisalign", "kids dentist",
-    "Chennai", "Bangalore", "India", "painless dentistry",
+    "Tamil Nadu", "India", "painless dentistry",
   ],
   openGraph: {
     type: "website",
@@ -51,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sans.variable}>
       <head>
-        <style dangerouslySetInnerHTML={{ __html: themeCss }} />
+        <style data-theme dangerouslySetInnerHTML={{ __html: themeCss }} />
       </head>
       <body className="font-sans bg-surface text-foreground antialiased">
         <a className="skip" href="#main">Skip to content</a>
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <Footer />
         </SmoothScroll>
+        <ThemeSwitcher />
       </body>
     </html>
   )

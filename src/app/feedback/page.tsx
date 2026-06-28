@@ -13,14 +13,14 @@ export default function FeedbackPage() {
     <>
       <section className="relative isolate overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/J-street-UtrE5DcgEyg.webp" alt="A golden retriever outdoors" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
+          <img src="/service-smile.webp" alt="Happy patient smile" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-foreground/10" />
           <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-surface to-transparent" />
         </div>
         <div className="container-page pt-32 pb-20 lg:pt-40 lg:pb-24">
           <div className="max-w-2xl text-background">
             <span className="eyebrow on-dark">Your feedback</span>
-            <h1 className="text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
+            <h1 className="text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em] text-white">
               How was your visit?
             </h1>
             <p className="lead on-dark mt-5">

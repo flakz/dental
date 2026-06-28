@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 const faqByCategory: Record<string, { q: string; a: string }[]> = {
   default: [
-    { q: "Is the treatment painful?", a: "No — we use computer-controlled local anaesthesia that delivers the anaesthetic slowly and painlessly. For anxious patients, we offer sedation options. Most patients report zero discomfort." },
+    { q: "Is the treatment painful?", a: "No  -  we use computer-controlled local anaesthesia that delivers the anaesthetic slowly and painlessly. For anxious patients, we offer sedation options. Most patients report zero discomfort." },
     { q: "How long does a typical procedure take?", a: "Most procedures take 30-90 minutes depending on complexity. Root canals may take 60-90 minutes, scaling about 45 minutes, and fillings 30-60 minutes. We give you an accurate time estimate at booking." },
-    { q: "Do you accept insurance?", a: "Yes — we accept most major insurance plans. We provide an detailed invoice that you can submit for reimbursement. We also offer EMI options for larger treatments like implants and orthodontics." },
+    { q: "Do you accept insurance?", a: "Yes  -  we accept most major insurance plans. We provide an detailed invoice that you can submit for reimbursement. We also offer EMI options for larger treatments like implants and orthodontics." },
     { q: "What if I need to cancel or reschedule?", a: "We ask for 4 hours notice for cancellations. There's no fee for rescheduling. Walk-ins are always welcome during clinic hours if you need urgent care." },
   ],
 }

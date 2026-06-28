@@ -33,7 +33,7 @@ export function ContactForm({ mode, services = [], showService = false, showSche
     try {
       const topic = `${site.ntfy.server}/${site.ntfy.topic}-${mode}`
       const lines = [
-        `New ${mode === "book" ? "booking" : "contact"} from pawside.in`,
+        `New ${mode === "book" ? "booking" : "contact"} from microsmiles.in`,
         ``,
         ...Object.entries(payload).map(([k, v]) => `${k}: ${v}`),
       ]

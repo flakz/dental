@@ -24,13 +24,13 @@ export function LinkItem({
     >
       <div
         className={cn(
-          "flex aspect-square size-12 items-center justify-center rounded-md border border-border/30 bg-[var(--dropdown-icon)] text-sm shadow-sm",
+          "flex aspect-square size-12 items-center justify-center rounded-md border border-border/30 bg-surface-muted text-sm shadow-sm",
           "[&_svg:not([class*='size-'])]:size-5 [&_svg:not([class*='text-'])]:text-foreground"
         )}
       >
         {icon}
       </div>
-      <div className="flex flex-col items-start justify-center">
+      <div className="flex min-w-0 flex-col items-start justify-center">
         <span className="font-medium">{label}</span>
         <span className="line-clamp-2 text-muted-foreground text-xs">
           {description}

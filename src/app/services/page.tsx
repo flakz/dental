@@ -10,7 +10,7 @@ import { CardsParallax } from "@/components/cards-parallax"
 
 export const metadata: Metadata = {
   title: "Services",
-  description: `From root canals to kids dentistry — ${services.length} dental services across Chennai and Bangalore. Specialist-led, painless, and affordable.`,
+  description: `From root canals to kids dentistry  -  ${services.length} dental services across Tamil Nadu. Specialist-led, painless, and affordable.`,
 }
 
 const categoryLabel: Record<Service["category"], string> = {
@@ -29,7 +29,7 @@ export default function ServicesPage() {
     <>
       <section className="relative isolate overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/pet-collage.webp" alt="A dog and cat together" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
+          <img src="/clinic-reception.webp" alt="Dental clinic reception area" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-foreground/10" />
           <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-surface to-transparent" />
         </div>

@@ -28,7 +28,7 @@ export function FeedbackForm() {
     try {
       const topic = `${site.ntfy.server}/${site.ntfy.feedbackTopic}`
       const lines = [
-        `New feedback from pawside.in`,
+        `New feedback from microsmiles.in`,
         ``,
         ...Object.entries(payload).map(([k, v]) => `${k}: ${v}`),
       ]

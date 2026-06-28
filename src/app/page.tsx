@@ -20,24 +20,24 @@ import { CardsParallax } from "@/components/cards-parallax"
 
 const stats = [
   { value: "4.9", suffix: "★", label: "Google rating", detail: "1,477+ reviews" },
-  { value: "15,000", suffix: "+", label: "Smiles restored", detail: "Across Chennai & Bangalore" },
-  { value: "12pm – 8pm", suffix: "", label: "Open every day", detail: "Anna Nagar & OMR (Mon–Sat)" },
+  { value: "15,000", suffix: "+", label: "Smiles restored", detail: "Across Tamil Nadu" },
+  { value: "12pm – 8pm", suffix: "", label: "Open every day", detail: "Open all days (Mon–Sat)" },
 ]
 
 const steps = [
   { n: "01", title: "Book an appointment", body: "Call us, WhatsApp, or use the online form. We confirm within the hour with a time slot that works for you." },
   { n: "02", title: "Walk in for your visit", body: "Our friendly team greets you, a digital x-ray is taken if needed, and the doctor does a thorough examination." },
-  { n: "03", title: "Custom treatment plan", body: "Your dentist explains the diagnosis, treatment options, timeline and cost — no pressure, no hidden charges." },
+  { n: "03", title: "Custom treatment plan", body: "Your dentist explains the diagnosis, treatment options, timeline and cost  -  no pressure, no hidden charges." },
   { n: "04", title: "Painless treatment", body: "Using UK-adopted painless protocols, we perform your procedure. Walk out smiling the same day." },
 ]
 
 
 const faqs = [
-  { q: "Is the treatment really painless?", a: "Yes — we use UK-adopted painless protocols including topical anaesthetic gel before the injection, computer-controlled local anaesthesia, and sedation options for anxious patients. Most patients report zero pain during procedures." },
+  { q: "Is the treatment really painless?", a: "Yes  -  we use UK-adopted painless protocols including topical anaesthetic gel before the injection, computer-controlled local anaesthesia, and sedation options for anxious patients. Most patients report zero pain during procedures." },
   { q: "How do I book an appointment?", a: "You can call us, send a WhatsApp message, or use the booking form on this site. We confirm your slot within an hour. Walk-ins are also welcome during clinic hours." },
   { q: "What payment options are available?", a: "We accept cash, UPI, debit/credit cards, and most insurance plans. We provide an itemised invoice for insurance claims. EMI options available for implant and orthodontic treatments." },
-  { q: "How often should I visit the dentist?", a: "We recommend a check-up and professional cleaning every 6 months. However, if you have specific concerns — pain, bleeding gums, sensitivity — don't wait for the next scheduled visit." },
-  { q: "Do you treat children?", a: "Absolutely — we have a dedicated paediatric team led by Dr. Rajesh (MDS, PhD), our Chief Pediatric Dentist. We specialise in making dental visits fun and fear-free for kids." },
+  { q: "How often should I visit the dentist?", a: "We recommend a check-up and professional cleaning every 6 months. However, if you have specific concerns  -  pain, bleeding gums, sensitivity  -  don't wait for the next scheduled visit." },
+  { q: "Do you treat children?", a: "Absolutely  -  we have a dedicated paediatric team led by Dr. Rajesh (MDS, PhD), our Chief Pediatric Dentist. We specialise in making dental visits fun and fear-free for kids." },
 ]
 
 const categoryLabel: Record<Service["category"], string> = {
@@ -71,7 +71,7 @@ export default function HomePage() {
             </h1>
 
             <p className="lead mt-7" style={{ maxWidth: 587 }}>
-              Root canal, implants, crowns, braces, invisalign, and kids dentistry — from one trusted team of specialists. <span className="text-primary font-medium">UK-adopted painless protocols.</span> Across Chennai and Bangalore, every day except Sunday.
+              Root canal, implants, crowns, braces, invisalign, and kids dentistry  -  from one trusted team of specialists. <span className="text-primary font-medium">UK-adopted painless protocols.</span> Across Tamil Nadu, every day except Sunday.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -120,11 +120,11 @@ export default function HomePage() {
             {/* Floating stat card */}
             <div className="absolute -left-6 bottom-10 hidden rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-4 shadow-[var(--shadow-md)] sm:flex sm:items-center sm:gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-full bg-primary-soft text-primary-deep">
-                <img src="/home1.png" alt="" className="h-6 w-6 object-contain" />
+                <div className="h-6 w-6" style={{ backgroundColor: "var(--paw-primary)", maskImage: "url(/home1.png)", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url(/home1.png)", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
               </div>
               <div>
                 <p className="font-display text-lg font-medium leading-none">15,000+ smiles</p>
-                <p className="mt-1 text-xs text-ink-muted">restored across Chennai &amp; Bangalore</p>
+                <p className="mt-1 text-xs text-ink-muted">restored across Tamil Nadu</p>
               </div>
             </div>
 
@@ -235,13 +235,13 @@ export default function HomePage() {
               Led by specialists, <span className="serif-italic text-primary font-semibold">built for comfort.</span>
             </h2>
             <p className="lead mt-6" style={{ maxWidth: 624 }}>
-              Microsmiles was founded by clinicians trained in the UK, bringing world-class painless dentistry to India. Every procedure, every protocol — designed around your comfort.
+              Microsmiles was founded by clinicians trained in the UK, bringing world-class painless dentistry to India. Every procedure, every protocol  -  designed around your comfort.
             </p>
 
             <ul className="mt-9 space-y-4">
               {[
                 { icon: ShieldCheck, t: "UK-trained, specialist-led team", d: "Every doctor is MDS-qualified. Our clinical director trained at the University of Edinburgh." },
-                { icon: Clock, t: "Painless protocols, guaranteed", d: "From local anaesthesia to sedation options — we make sure you feel nothing." },
+                { icon: Clock, t: "Painless protocols, guaranteed", d: "From local anaesthesia to sedation options  -  we make sure you feel nothing." },
                 { icon: Heart, t: "Your smile, our priority", d: "We explain everything upfront. No hidden costs, no pressure, just honest dental care." },
               ].map(({ icon: Icon, t, d }) => (
                 <li key={t} className="flex items-start gap-4">
@@ -286,9 +286,9 @@ export default function HomePage() {
 
 
       {/* ============================================================
-          TWITTER SOCIAL PROOF — Patient testimonials
+          TWITTER SOCIAL PROOF  -  Patient testimonials
           ============================================================ */}
-      <section className="py-10">
+      <section className="pt-10">
         <div className="container-page">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <SectionHeading alignment="center">
@@ -301,22 +301,22 @@ export default function HomePage() {
         </div>
 
         <div className="group relative mx-auto max-w-[76rem] overflow-hidden">
-          <div className="flex animate-[marquee_50000ms_linear_both_infinite] gap-4 will-change-transform group-hover:[animation-play-state:paused] motion-reduce:animate-none">
-            {[...Array(3)].flatMap(() => testimonials).map((t, i) => (
+          <div className="marquee-track marquee-left will-change-transform">
+            {[...Array(2)].flatMap(() => testimonials).map((t, i) => (
               <div
                 key={`social-${i}`}
-                className="w-[380px] shrink-0 rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6 shadow-sm"
+                className="w-[380px] shrink-0 rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6 shadow-sm mb-5 mr-4"
               >
                 <div className="flex items-center gap-0.5">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star key={j} className="h-3.5 w-3.5 fill-accent text-accent" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="mt-4 line-clamp-6 font-display text-base leading-relaxed text-foreground">
+                <p className="mt-4 line-clamp-4 font-display text-base leading-relaxed text-foreground">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
-                  <div className="size-10 rounded-full bg-primary-soft" />
+                  <div className="size-10 shrink-0 rounded-full bg-primary-soft" style={{ maskImage: "url(/pfp.png)", maskSize: "contain", maskPosition: "center", maskRepeat: "no-repeat", WebkitMaskImage: "url(/pfp.png)", WebkitMaskSize: "contain", WebkitMaskPosition: "center", WebkitMaskRepeat: "no-repeat" }} />
                   <div>
                     <p className="text-sm font-semibold text-foreground">{t.name}</p>
                     <p className="text-xs text-ink-muted">{t.role}</p>
@@ -325,8 +325,38 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          {/* Fade overlay — radial gradient like Supabase */}
-          <div className="pointer-events-none absolute inset-0 top-auto h-full max-h-[500px] bg-[radial-gradient(50%_100%_at_50%_0,transparent_0%,transparent_50%,var(--paw-surface)_100%)] max-lg:max-h-[400px]" />
+          {/* Fade overlay  -  radial gradient like Supabase */}
+          <div className="pointer-events-none absolute inset-0 top-auto h-[500px] bg-[radial-gradient(50%_100%_at_50%_0,transparent_0%,transparent_50%,var(--paw-surface)_100%)] max-lg:h-[400px]" />
+        </div>
+
+        {/* Row 2 - scrolls right */}
+        <div className="group/row2 relative mx-auto w-full max-w-[76rem] overflow-hidden marquee-track">
+          <div className="marquee-track will-change-transform" style={{ animation: "marquee 40s linear infinite reverse" }}>
+            {[...Array(2)].flatMap(() => testimonials).map((t, i) => (
+              <div
+                key={`row2-${i}`}
+                className="w-[380px] shrink-0 rounded-[var(--radius-xl)] border border-border bg-surface-elevated p-6 shadow-sm mr-4"
+              >
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: t.rating }).map((_, j) => (
+                    <Star key={j} className="h-3.5 w-3.5 fill-accent text-accent" aria-hidden="true" />
+                  ))}
+                </div>
+                <p className="mt-4 line-clamp-4 font-display text-base leading-relaxed text-foreground">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                  <div className="size-10 shrink-0 rounded-full bg-primary-soft" style={{ maskImage: "url(/pfp.png)", maskSize: "contain", maskPosition: "center", maskRepeat: "no-repeat", WebkitMaskImage: "url(/pfp.png)", WebkitMaskSize: "contain", WebkitMaskPosition: "center", WebkitMaskRepeat: "no-repeat" }} />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                    <p className="text-xs text-ink-muted">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Fade overlay  -  radial gradient like Supabase */}
+          <div className="pointer-events-none absolute inset-0 top-auto h-[500px] bg-[radial-gradient(50%_100%_at_50%_0,transparent_0%,transparent_50%,var(--paw-surface)_100%)] max-lg:h-[400px]" />
         </div>
       </section>
 

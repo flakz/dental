@@ -78,10 +78,10 @@ export function Header() {
                 {label}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="p-1 pr-1.5">
-                <div className="rounded-lg grid w-[48rem] max-h-[70vh] grid-cols-4 gap-2 overflow-y-auto border border-primary/30 bg-[var(--dropdown-inner)] p-2 shadow-md">
+                <div className={`rounded-lg grid max-h-[70vh] gap-x-3 gap-y-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [\&::-webkit-scrollbar]:hidden border border-primary/30 bg-[var(--dropdown-inner)] p-2 shadow-md ${label === "Services" ? "w-[56rem] grid-cols-4" : "w-lg grid-cols-2"}`}>
                   {links.map((item) => (
                     <NavigationMenuLink asChild key={item.label}>
-                      <LinkItem {...item} className="!flex-row !items-start !gap-3" />
+                      <LinkItem {...item} className="!flex-row !items-start !gap-3 min-h-[4.5rem]" />
                     </NavigationMenuLink>
                   ))}
                 </div>

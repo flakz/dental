@@ -18,8 +18,8 @@ export const services: Service[] = content('SERVICES', [
   {
     slug: 'root-canal-therapy',
     name: 'Root Canal Therapy',
-    short: 'Remove infection, save your natural tooth, restore comfort.',
-    description: 'Root canal therapy removes infected pulp from inside your tooth, cleans the canal, and seals it to prevent reinfection. Performed under local anaesthesia — completely painless.',
+    short: 'Save your tooth with painless root canal.',
+    description: 'Root canal therapy removes infected pulp from inside your tooth, cleans the canal, and seals it to prevent reinfection. Performed under local anaesthesia  -  completely painless.',
     bullets: [
       'Painless procedure under local anaesthesia',
       'Single or multi-visit depending on infection',
@@ -33,8 +33,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'repeat-root-canal-therapy',
-    name: 'Repeat Root Canal Therapy',
-    short: 'Re-treat a failed root canal and save your tooth again.',
+    name: 'Repeat Root Canal',
+    short: 'Re-treat failed root canals to save teeth.',
     description: 'If a previously root-canaled tooth gets reinfected, repeat RCT cleans the canals again, removes old filling material, and re-seals. Often done microscopically for best outcomes.',
     bullets: [
       'Removal of existing root canal filling',
@@ -49,11 +49,11 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'surgical-root-canal-therapy',
-    name: 'Surgical Root Canal Therapy',
-    short: 'Apicoectomy for persistent infections beyond conventional RCT.',
+    name: 'Surgical Root Canal',
+    short: 'Surgery for persistent root infections.',
     description: 'When infection persists after conventional RCT, surgical root canal (apicoectomy) removes the tip of the root and seals the canal from the end. A microscopic procedure for complex cases.',
     bullets: [
-      'Local anaesthesia — completely painless',
+      'Local anaesthesia  -  completely painless',
       'Microsurgical removal of root tip',
       'Retrograde filling to seal the canal',
       'Minimally invasive with fast recovery',
@@ -65,8 +65,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'tooth-scaling-cleaning',
-    name: 'Tooth Scaling & Cleaning',
-    short: 'Deep plaque and tartar removal for healthy gums and fresh breath.',
+    name: 'Scaling & Cleaning',
+    short: 'Deep cleaning for healthy gums.',
     description: 'Professional scaling removes plaque, tartar and stains from above and below the gumline. Prevents gum disease, cavities, and bad breath. Recommended every 6 months.',
     bullets: [
       'Ultrasonic scaling for deep tartar removal',
@@ -81,15 +81,15 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'contact-free-stain-removal',
-    name: 'Contact-Free Stain Removal',
-    short: 'Remove coffee, tea, tobacco stains without touching your teeth.',
+    name: 'Stain Removal Care',
+    short: 'Remove stains without touching your teeth.',
     description: 'Advanced air-abrasion technology removes stubborn stains without any instrument touching your enamel. Painless, quick, and ideal for stains that brushing alone cannot remove.',
     bullets: [
       'No instruments touch the tooth surface',
       'Effective on coffee, tea, tobacco stains',
       'Single-session procedure',
       'Immediate visible results',
-      'Safe on enamel — no damage',
+      'Safe on enamel  -  no damage',
     ],
     icon: 'SprayCan',
     startingPrice: '₹1,499',
@@ -97,8 +97,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'wisdom-tooth-management',
-    name: 'Wisdom Tooth Management',
-    short: 'Save or remove — expert care for your third molars.',
+    name: 'Wisdom Tooth Care',
+    short: 'Expert care for your wisdom teeth.',
     description: 'Wisdom teeth often cause pain, crowding, or infection. We assess with x-rays and recommend either management (if salvageable) or atraumatic extraction with minimal recovery time.',
     bullets: [
       'Digital OPG x-ray evaluation',
@@ -113,13 +113,13 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'bioceramic-fillings',
-    name: 'Bioceramic Fillings',
-    short: 'Advanced biocompatible fillings that bond naturally with your tooth.',
-    description: 'Bioceramic materials are the latest in restorative dentistry — they bond chemically with natural tooth structure, release fluoride, and are highly biocompatible. Ideal for deep fillings near the nerve.',
+    name: 'BioCeramic Fillings',
+    short: 'Fillings that bond with your tooth.',
+    description: 'Bioceramic materials are the latest in restorative dentistry  -  they bond chemically with natural tooth structure, release fluoride, and are highly biocompatible. Ideal for deep fillings near the nerve.',
     bullets: [
       'Chemically bonds to natural tooth',
-      'Fluoride-releasing — prevents recurrence',
-      'Bioactive — encourages natural repair',
+      'Fluoride-releasing  -  prevents recurrence',
+      'Bioactive  -  encourages natural repair',
       'Ideal for deep cavities near pulp',
       'Single-visit procedure',
     ],
@@ -129,14 +129,14 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'caps-dental-crowns',
-    name: 'Caps / Dental Crowns',
-    short: 'Restore broken, weak or root-canaled teeth with custom crowns.',
+    name: 'Dental Crown Work',
+    short: 'Restore broken or weak teeth with crowns.',
     description: 'A dental crown (cap) covers and protects a damaged tooth, restoring its shape, size, and function. Available in ceramic, zirconia, and metal-ceramic options matched to your tooth shade.',
     bullets: [
       'Custom-made to match your tooth shade',
       'Ceramic, zirconia, or metal-ceramic options',
       'Protects root-canaled or cracked teeth',
-      'Durable — lasts 10-15 years with care',
+      'Durable  -  lasts 10-15 years with care',
       'Comfortable fit in 2-3 visits',
     ],
     icon: 'Crown',
@@ -145,12 +145,12 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'dental-bridges',
-    name: 'Dental Bridges / Missing Teeth Replacement',
-    short: 'Replace one or more missing teeth with natural-looking fixed bridges.',
-    description: 'A dental bridge literally bridges the gap created by missing teeth. Anchored on adjacent healthy teeth, it restores your smile, bite, and facial structure. Fixed — no removal needed.',
+    name: 'Dental Bridge Work',
+    short: 'Replace missing teeth with fixed bridges.',
+    description: 'A dental bridge literally bridges the gap created by missing teeth. Anchored on adjacent healthy teeth, it restores your smile, bite, and facial structure. Fixed  -  no removal needed.',
     bullets: [
       'Natural-looking ceramic restoration',
-      'Fixed — no removal or special care',
+      'Fixed  -  no removal or special care',
       'Prevents adjacent teeth from shifting',
       'Restores chewing function fully',
       'Shade-matched to your natural teeth',
@@ -161,8 +161,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'dental-implants',
-    name: 'Dental Implants',
-    short: 'Permanent titanium roots for a completely natural smile replacement.',
+    name: 'Implant Dentistry',
+    short: 'Titanium roots for natural smile.',
     description: 'Dental implants are the gold standard for missing teeth. A titanium post is placed in the jawbone, topped with a ceramic crown. Looks, feels and functions exactly like a natural tooth.',
     bullets: [
       'Titanium post fuses with jawbone',
@@ -177,8 +177,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'full-mouth-rehabilitation',
-    name: 'Full Mouth Rehabilitation with Implants',
-    short: 'Complete mouth restoration for severely damaged or missing teeth.',
+    name: 'Mouth Restoration',
+    short: 'Full mouth restoration for damaged teeth.',
     description: 'Full mouth rehabilitation combines implants, crowns, bridges and sometimes dentures to restore an entire mouth. Custom-planned using digital smile design and 3D imaging.',
     bullets: [
       'Comprehensive digital smile design',
@@ -193,9 +193,9 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'teeth-whitening',
-    name: 'Teeth Whitening (Bleaching)',
-    short: 'Professional bleaching for noticeably brighter teeth in one session.',
-    description: 'In-office laser teeth whitening uses professional-grade gel activated by a special light. Results are immediate — several shades brighter in about an hour. Custom tray option for home use.',
+    name: 'Teeth Whitening',
+    short: 'Professional bleaching for a brighter smile.',
+    description: 'In-office laser teeth whitening uses professional-grade gel activated by a special light. Results are immediate  -  several shades brighter in about an hour. Custom tray option for home use.',
     bullets: [
       'One-session in-office treatment',
       'Up to 8 shades brighter immediately',
@@ -210,7 +210,7 @@ export const services: Service[] = content('SERVICES', [
   {
     slug: 'smile-designing',
     name: 'Smile Designing',
-    short: 'Digital smile makeover — veneers, contouring, and perfect proportions.',
+    short: 'Smile makeover with veneers.',
     description: 'Digital smile design analyses your facial proportions, lip line, and tooth shape. Using veneers, contouring, crowns or alignment, we craft a smile that fits your face naturally.',
     bullets: [
       'Digital photography and facial analysis',
@@ -225,8 +225,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'broken-tooth-management',
-    name: 'Broken Tooth Management',
-    short: 'Immediate care and restoration for chipped, cracked or broken teeth.',
+    name: 'Broken Tooth Care',
+    short: 'Fix for chipped or broken teeth.',
     description: 'Whether from an accident, fall, or biting something hard, a broken tooth needs prompt attention. We assess damage, treat pain, and restore the tooth with bonding, filling or crown.',
     bullets: [
       'Same-day emergency appointments',
@@ -241,9 +241,9 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'dental-veneers',
-    name: 'Dental Veneers',
-    short: 'Thin ceramic shells that transform chipped, stained or uneven teeth.',
-    description: 'Veneers are custom-made thin shells bonded to the front of teeth. They fix discolouration, chips, gaps, and mild misalignment. Minimal tooth reduction required — maximum aesthetic result.',
+    name: 'Porcelain Veneers',
+    short: 'Thin shells that transform your smile.',
+    description: 'Veneers are custom-made thin shells bonded to the front of teeth. They fix discolouration, chips, gaps, and mild misalignment. Minimal tooth reduction required  -  maximum aesthetic result.',
     bullets: [
       'Minimal enamel reduction (0.3-0.5mm)',
       'Stain-resistant ceramic material',
@@ -257,9 +257,9 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'gaps-crowding-correction',
-    name: 'Gaps & Crowding Correction',
-    short: 'Close gaps and align crowded teeth with or without braces.',
-    description: 'Diastema (gaps) and crowding can be corrected with orthodontic braces, clear aligners, or cosmetic bonding — depending on severity. We recommend the least invasive option first.',
+    name: 'Gap & Crowding Fix',
+    short: 'Close gaps and align crowded teeth.',
+    description: 'Diastema (gaps) and crowding can be corrected with orthodontic braces, clear aligners, or cosmetic bonding  -  depending on severity. We recommend the least invasive option first.',
     bullets: [
       'Orthodontic assessment and digital scan',
       'Braces, aligners, or bonding options',
@@ -273,8 +273,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'non-microscope-dentistry',
-    name: 'Non-Microscope Assisted Dentistry',
-    short: 'Affordable, quality dental care without microscope-assisted pricing.',
+    name: 'Basic Dental Care',
+    short: 'Quality dental care at affordable prices.',
     description: 'For patients who prefer more affordable treatment, our experienced dentists provide quality care using conventional techniques. Same expertise, same standards, without the microscope surcharge.',
     bullets: [
       'Experienced senior dentists',
@@ -289,8 +289,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'tooth-extraction',
-    name: 'Tooth Extraction',
-    short: 'Gentle, painless removal of damaged or non-restorable teeth.',
+    name: 'Tooth Extractions',
+    short: 'Gentle removal of damaged teeth.',
     description: 'When a tooth cannot be saved, we perform atraumatic extraction to remove it with minimal discomfort. Simple or surgical extraction depending on the tooth condition.',
     bullets: [
       'Local anaesthesia for painless procedure',
@@ -306,7 +306,7 @@ export const services: Service[] = content('SERVICES', [
   {
     slug: 'laser-gum-surgery',
     name: 'Laser Gum Surgery',
-    short: 'Minimally invasive laser treatment for gum disease and gummy smile.',
+    short: 'Laser fix for gum disease.',
     description: 'Diode laser gum surgery treats periodontal disease, reshapes uneven gums, and corrects gummy smile with virtually no bleeding or downtime. Precision without scalpels or stitches.',
     bullets: [
       'No scalpel, minimal bleeding',
@@ -321,8 +321,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'orthodontics-braces',
-    name: 'Orthodontics / Braces',
-    short: 'Straighten teeth with metal, ceramic, or self-ligating braces.',
+    name: 'Braces Treatments',
+    short: 'Straighten teeth with metal braces.',
     description: 'Traditional braces remain one of the most effective ways to correct misalignment. Metal, ceramic (tooth-coloured), and self-ligating options available. Suitable for all age groups.',
     bullets: [
       'Metal, ceramic, or self-ligating brackets',
@@ -337,14 +337,14 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'invisalign',
-    name: 'Invisalign',
-    short: 'Clear, removable aligners that straighten teeth discreetly.',
+    name: 'Invisalign Aligners',
+    short: 'Clear, removable for discreet straightening.',
     description: 'Invisalign uses a series of custom-made clear aligners to shift teeth gradually. Nearly invisible, removable for eating and cleaning, and typically faster than braces for mild to moderate cases.',
     bullets: [
       'Custom 3D-printed clear aligners',
-      'Removable — eat and clean normally',
+      'Removable  -  eat and clean normally',
       'Nearly invisible appearance',
-      'Digital scan — no messy impressions',
+      'Digital scan  -  no messy impressions',
       'Typical treatment 6-18 months',
     ],
     icon: 'ScanEye',
@@ -353,8 +353,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'sleep-dentistry',
-    name: 'Sleep Dentistry',
-    short: 'Complete dental treatment under sedation for anxious patients.',
+    name: 'Sedation Dentistry',
+    short: 'Dental treatment under sedation.',
     description: 'Sleep dentistry uses oral sedation or IV sedation so you can undergo multiple procedures in one visit with zero anxiety, memory, or discomfort. Ideal for severe dental phobia or complex treatments.',
     bullets: [
       'Oral or IV sedation options',
@@ -371,11 +371,11 @@ export const services: Service[] = content('SERVICES', [
   // ── KIDS SERVICES ──
   {
     slug: 'tooth-colored-fillings-kids',
-    name: 'Tooth-Colored Fillings For Kids',
-    short: 'Natural-looking, durable fillings for childrens teeth.',
+    name: 'Kids Tooth Fillings',
+    short: 'Natural-looking fillings for childrens teeth.',
     description: 'Composite tooth-coloured fillings restore decayed baby teeth and permanent teeth. Matches natural tooth colour, bonds directly to the tooth, and requires minimal drilling.',
     bullets: [
-      'Tooth-coloured — invisible in the mouth',
+      'Tooth-coloured  -  invisible in the mouth',
       'Bonds directly to the tooth',
       'Minimal drilling required',
       'Single-visit procedure',
@@ -387,8 +387,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'zirconia-crowns-kids',
-    name: 'Zirconia Crowns / Ceramic Caps For Kids',
-    short: 'Strong, tooth-coloured caps for childrens milk teeth.',
+    name: 'Kids Zirconia Crown',
+    short: 'Strong, tooth-coloured caps for milk teeth.',
     description: 'Zirconia crowns for kids are prefabricated ceramic caps that fit over decayed or damaged baby teeth. Metal-free, biocompatible, and available in natural tooth shades.',
     bullets: [
       'Metal-free, completely biocompatible',
@@ -403,8 +403,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'childrens-root-canal',
-    name: "Children's Root Canal / Pulp Therapy",
-    short: 'Save infected baby teeth with gentle, child-focused pulp therapy.',
+    name: 'Kids Root Canal',
+    short: 'Gentle therapy to save infected baby teeth.',
     description: 'Pulp therapy (baby root canal) removes infected nerve tissue from a childs tooth while preserving the crown. Essential for saving the tooth until the permanent successor erupts naturally.',
     bullets: [
       'Child-friendly, gentle approach',
@@ -419,8 +419,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'preventive-dentistry-kids',
-    name: 'Preventive Dentistry For Kids',
-    short: 'Fluoride, sealants, and healthy habits for cavity-free childhood.',
+    name: 'Kids Dentistry Care',
+    short: 'Fluoride and sealants for cavity-free kids.',
     description: 'Preventive dentistry includes professional fluoride application, pit and fissure sealants, and oral hygiene education tailored to children. Builds a foundation for lifelong dental health.',
     bullets: [
       'Fluoride varnish application',
@@ -435,8 +435,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'face-jaw-correction-kids',
-    name: 'Face And Jaw Correction For Kids',
-    short: 'Early orthopaedic correction for growing childrens jaw and facial structure.',
+    name: 'Kids Jaw Correction',
+    short: 'Early jaw correction for growing children.',
     description: 'Functional appliances guide jaw growth in children, correcting underbites, overbites, and narrow arches while the child is still growing. Best results in ages 7-12.',
     bullets: [
       'Non-invasive functional appliances',
@@ -451,8 +451,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'orthodontics-kids',
-    name: 'Orthodontics For Kids',
-    short: 'Early braces and alignment for children and pre-teens.',
+    name: 'Kids Orthodontics',
+    short: 'Early braces and alignment for children.',
     description: 'Early orthodontic evaluation (age 7+) identifies developing issues. Interceptive treatment with braces or aligners can guide teeth into proper position, preventing complex problems later.',
     bullets: [
       'Early evaluation from age 7',
@@ -467,12 +467,12 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'aligners-kids-invisalign-first',
-    name: 'Aligners for Kids (Invisalign First)',
-    short: 'Clear aligners designed specifically for growing childrens teeth.',
-    description: 'Invisalign First is designed for children aged 6-12 with mixed dentition (baby and permanent teeth). Expands arches, guides eruption, and corrects bite issues — all with clear, removable aligners.',
+    name: 'Kids Teeth Aligners',
+    short: 'Clear aligners for growing kids.',
+    description: 'Invisalign First is designed for children aged 6-12 with mixed dentition (baby and permanent teeth). Expands arches, guides eruption, and corrects bite issues  -  all with clear, removable aligners.',
     bullets: [
       'Custom-made for mixed dentition',
-      'Removable — easy brushing and eating',
+      'Removable  -  easy brushing and eating',
       'Expands arches and guides eruption',
       'Nearly invisible appearance',
       'Fewer appointments than braces',
@@ -483,8 +483,8 @@ export const services: Service[] = content('SERVICES', [
   },
   {
     slug: 'sleep-dentistry-kids',
-    name: 'Sleep Dentistry For Kids',
-    short: 'Gentle sedation dentistry for anxious or uncooperative children.',
+    name: 'Kids Sleep Dentist',
+    short: 'Gentle sedation for anxious children.',
     description: 'Paediatric sleep dentistry uses safe sedation protocols approved for children. The child remains relaxed throughout the procedure with no memory of it. Ideal for extensive treatment or high anxiety.',
     bullets: [
       'Paediatric-safe sedation protocols',

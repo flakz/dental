@@ -9,17 +9,17 @@ export const metadata: Metadata = {
 
 const values = [
   { icon: Heart, t: "Painless, or it's on us", d: "If you feel pain during treatment, we stop, reassess, and adjust. Your comfort is non-negotiable." },
-  { icon: ShieldCheck, t: "Specialist-led, not generalist", d: "Every Microsmiles doctor is MDS-qualified in their field — not a general dentist doing everything." },
+  { icon: ShieldCheck, t: "Specialist-led, not generalist", d: "Every Microsmiles doctor is MDS-qualified in their field  -  not a general dentist doing everything." },
   { icon: Clock, t: "See you within the hour", d: "Book online or walk in. We confirm your appointment within an hour of your first enquiry." },
   { icon: Sparkles, t: "Upfront pricing, no surprises", d: "You get a clear treatment plan with costs before any procedure. No hidden charges, no surprises." },
 ]
 
 const milestones = [
-  { year: "2019", t: "First clinic in Anna Nagar", d: "Founded by UK-trained clinicians. Two chairs, one vision — painless dentistry." },
-  { year: "2021", t: "OMR Clinic opens", d: "Expanded to Semmancheri, OMR. Added digital x-ray and microscope-assisted treatments." },
-  { year: "2023", t: "Bangalore — Whitefield", d: "Crossed the state border. Third clinic opens in Whitefield, Bengaluru." },
+  { year: "2019", t: "First clinic opened", d: "Founded by UK-trained clinicians. Two chairs, one vision  -  painless dentistry." },
+  { year: "2021", t: "Expanded operations", d: "Added digital x-ray and microscope-assisted treatments." },
+  { year: "2023", t: "Multi-location presence", d: "Expanded across multiple locations in Tamil Nadu." },
   { year: "2024", t: "11 specialists, 3 locations", d: "Team grows to 11 MDS doctors. 1,477+ Google reviews. 4.9★ rating." },
-  { year: "2026", t: "15,000+ smiles restored", d: "From root canals to full mouth rehabilitation — across Chennai and Bangalore." },
+  { year: "2026", t: "15,000+ smiles restored", d: "From root canals to full mouth rehabilitation  -  across Tamil Nadu." },
 ]
 
 export default function AboutPage() {
@@ -28,7 +28,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative isolate overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/A-blake-Y-b79Mg0O-4.webp" alt="Dental clinic" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
+          <img src="/about-team.webp" alt="Modern dental clinic interior" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-foreground/10" />
           <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-surface to-transparent" />
         </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
               Painless dentistry, adopted from the UK, now in India.
             </h1>
             <p className="lead on-dark mt-5">
-              We're a Chennai and Bangalore team of MDS-qualified specialists, on a mission to make every dental visit something you don't dread — but actually look forward to.
+              We're a Tamil Nadu team of MDS-qualified specialists, on a mission to make every dental visit something you don't dread  -  but actually look forward to.
             </p>
           </div>
         </div>
@@ -51,9 +51,7 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
             <div className="p-[6px]">
               <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] shadow-sm">
-                <div className="flex h-full w-full items-center justify-center bg-primary-soft text-[3rem] font-display font-medium text-primary-deep">
-                  MS
-                </div>
+                <img src="/clinic-reception.webp" alt="Microsmiles Dental Clinic" className="h-full w-full object-cover" />
               </div>
             </div>
           </div>
@@ -64,13 +62,13 @@ export default function AboutPage() {
             </h2>
             <div className="mt-7 space-y-5 text-lg leading-relaxed text-ink-soft">
               <p>
-                Microsmiles was founded with one belief — that world-class dentistry shouldn't require a flight to another country. Our clinical director trained at the University of Edinburgh, UK, and brought back protocols that prioritise patient comfort above all.
+                Microsmiles was founded with one belief  -  that world-class dentistry shouldn't require a flight to another country. Our clinical director trained at the University of Edinburgh, UK, and brought back protocols that prioritise patient comfort above all.
               </p>
               <p>
-                In 2019, we opened our first clinic in Anna Nagar, Chennai. The response was overwhelming — patients travelled from across the city for painless root canals, implants, and paediatric care they couldn't find elsewhere.
+                In 2019, we opened our first clinic in Tamil Nadu. The response was overwhelming  -  patients travelled from across the city for painless root canals, implants, and paediatric care they couldn't find elsewhere.
               </p>
               <p>
-                Today we operate three clinics across Chennai and Bangalore, with a team of 11 MDS-qualified specialists covering endodontics, orthodontics, prosthodontics, and paediatric dentistry. Same team, same standards — just more smiles.
+                Today we operate across Tamil Nadu, with a team of 11 MDS-qualified specialists covering endodontics, orthodontics, prosthodontics, and paediatric dentistry. Same team, same standards  -  just more smiles.
               </p>
             </div>
           </div>
@@ -136,9 +134,11 @@ export default function AboutPage() {
               <div key={t.slug} className="overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
                 <div className="p-[6px]">
                   <div className="relative aspect-square overflow-hidden rounded-[20px] shadow-sm">
-                    <div className="flex h-full w-full items-center justify-center bg-primary-soft text-[2rem] font-display font-medium text-primary-deep">
-                      {t.name.split(' ').map(n => n[0]).join('')}
-                    </div>
+                    <img
+                    src={`/team-doctor-${team.indexOf(t) + 1}.webp`}
+                    alt={t.name}
+                    className="h-full w-full object-cover"
+                  />
                   </div>
                 </div>
                 <div className="px-4 pb-4 pt-1">

@@ -3,27 +3,27 @@ import { ContactForm } from "@/components/contact-form"
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: `Get in touch with Microsmiles Dental Care. Visit us in Chennai or Bangalore, or call to book your dental appointment.`,
+  description: `Get in touch with Microsmiles Dental Care. Visit us in Tamil Nadu, or call to book your dental appointment.`,
 }
 
 const locations = [
   {
-    name: "Chennai — Anna Nagar",
+    name: "Chennai  -  Anna Nagar",
     address: "Ground Floor, AH 11, 4th Ave, Shanthi Colony, Anna Nagar, Chennai, Tamil Nadu 600 040.",
     phone: "+91 90437 53438",
-    hours: "Mon — Sat: 12pm – 8pm (Sunday Off)",
+    hours: "Mon  -  Sat: 12pm – 8pm (Sunday Off)",
   },
   {
-    name: "Chennai — OMR",
+    name: "Chennai  -  OMR",
     address: "4A 4B 4th Floor, S. C, Sai Selvaraj Complex, 1. Rajiv Gandhi Salai, Semmancheri, Near Sathyabama University, Chennai, Tamil Nadu 600119.",
     phone: "+91 90437 53438",
-    hours: "Mon — Sun: 11am – 8pm (Wednesday Off)",
+    hours: "Mon  -  Sun: 11am – 8pm (Wednesday Off)",
   },
   {
-    name: "Bangalore — Whitefield",
+    name: "Bangalore  -  Whitefield",
     address: "No: 17, Varthur Main Rd, Kumarapalli, Thubarahalli, Whitefield, Bengaluru, Karnataka 560 066.",
     phone: "+91 81473 80814",
-    hours: "Mon — Sun: 11am – 8pm (Wednesday Off)",
+    hours: "Mon  -  Sun: 11am – 8pm (Wednesday Off)",
   },
 ]
 
@@ -32,7 +32,7 @@ export default function ContactPage() {
     <>
       <section className="relative isolate overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/MF-gFcfg3sUCtU.webp" alt="A golden retriever in sunlight" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
+          <img src="/hero-dental.webp" alt="Modern dental clinic" className="h-full w-full object-cover object-[center_30%]" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-foreground/10" />
           <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-surface to-transparent" />
         </div>
