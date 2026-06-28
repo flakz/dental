@@ -29,7 +29,7 @@ export default function TakeATourPage() {
         <TextEffect per="word" preset="fade-in-blur" as="h1" className="mt-4 text-[clamp(2.25rem,4vw+1rem,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em]">
           See our clinic up close.
         </TextEffect>
-        <p className="lead mt-5 text-center">
+        <p className="lead mt-5 mx-auto" style={{ textAlign: "center" }}>
           Modern clinics, specialist teams, and a patient-first environment. Take a visual walk through our multiple locations across Tamil Nadu.
         </p>
       </Reveal>
