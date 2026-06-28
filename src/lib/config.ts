@@ -32,12 +32,3 @@ const baseConfig = {
 
 export const site = content('CONFIG', baseConfig)
 
-export function ntfyEndpoint(form: 'contact' | 'book'): string {
-  return `${site.ntfy.server}/${site.ntfy.topic}-${form}`;
-}
-
-export const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID ?? '';
-
-export function googleMapsReviewUrl(): string {
-  return `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
-}

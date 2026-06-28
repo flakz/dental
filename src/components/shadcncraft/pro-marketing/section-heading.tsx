@@ -73,7 +73,6 @@ function SectionHeadingActions({ className, ...props }: React.ComponentProps<"di
 
 export {
   SectionHeading,
-  SectionHeadingActions,
   SectionHeadingBody,
   SectionHeadingTagline,
   SectionHeadingTitle,

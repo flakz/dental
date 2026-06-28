@@ -1,7 +1,7 @@
 // ponytail: image manifest — dental demo. Single source of truth for which photo goes where.
 // Drop more files in /public, add a line here, reference via the key.
 
-export interface SiteImage {
+interface SiteImage {
   file: string;
   alt: string;
   credit: string;

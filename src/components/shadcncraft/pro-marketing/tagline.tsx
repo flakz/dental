@@ -50,4 +50,4 @@ function Tagline({
   );
 }
 
-export { Tagline, taglineVariants };
+export { Tagline };

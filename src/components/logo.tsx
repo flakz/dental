@@ -1,6 +1,6 @@
 import type React from "react";
 
-export const LogoIcon = (props: React.ComponentProps<"svg">) => (
+const LogoIcon = (props: React.ComponentProps<"svg">) => (
 	<div
 		className="h-7 w-7"
 		style={{

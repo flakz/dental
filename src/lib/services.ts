@@ -504,10 +504,6 @@ export const services: Service[] = content('SERVICES', [
 // The adult version is not provided since tooth-coloured fillings are primarily
 // associated with paediatric dentistry in the Microsmiles portfolio.
 
-export const categoryLabels: Record<Service['category'], string> = {
-  adult: 'Adult Dentistry',
-  kids: 'Kids Dentistry',
-};
 
 export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
