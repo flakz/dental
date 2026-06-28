@@ -190,7 +190,7 @@ export default function HomePage() {
                 return (
                   <Link key={s.slug} href={`/services/${s.slug}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
                     <div className="p-[6px]">
-                      <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-sm ring-[1.5px] ring-white/80">
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-sm ring-[1px] ring-white/80">
                         <Image src={`/${img.file}`} alt={img.alt} fill sizes="100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                       </div>
                     </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
                   <HoverLift>
                     <Link href={`/services/${s.slug}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-border bg-surface-muted shadow-[var(--shadow-lg)]">
                       <div className="p-[6px]">
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-md ring-[1.5px] ring-white/80">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-md ring-[1px] ring-white/80">
                           <Image src={`/${img.file}`} alt={img.alt} fill sizes="25vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                         </div>
                       </div>
