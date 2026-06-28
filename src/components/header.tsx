@@ -78,7 +78,7 @@ export function Header() {
                 {label}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="p-1 pr-1.5">
-                <div className="rounded-lg grid w-lg grid-cols-2 gap-2 border border-primary/30 bg-[var(--dropdown-inner)] p-2 shadow-md">
+                <div className="rounded-lg grid w-[48rem] max-h-[70vh] grid-cols-4 gap-2 overflow-y-auto border border-primary/30 bg-[var(--dropdown-inner)] p-2 shadow-md">
                   {links.map((item) => (
                     <NavigationMenuLink asChild key={item.label}>
                       <LinkItem {...item} className="!flex-row !items-start !gap-3" />
@@ -91,7 +91,7 @@ export function Header() {
                       <p className="text-muted-foreground text-sm">
                         Not sure what you need?{" "}
                         <Link href="/book" className="font-medium text-foreground hover:underline">
-                          Book a consultation
+                          Book an appointment
                         </Link>
                       </p>
                       <Link href="/services" className="rounded-md px-3 py-1.5 text-sm font-medium text-foreground hover:bg-surface-muted">
@@ -133,7 +133,7 @@ export function Header() {
       {/* Right actions */}
       <div className="flex items-center gap-2 sm:gap-4">
         <Button asChild size="sm" className="hidden h-9 !rounded-[12px] bg-primary px-4 text-xs font-medium text-primary-foreground transition-all hover:bg-primary-deep hover:shadow-md sm:inline-flex sm:h-10 sm:px-6 sm:text-sm">
-          <Link href="/book">Book a service</Link>
+          <Link href="/book">Book an appointment</Link>
         </Button>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
