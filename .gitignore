@@ -11,10 +11,23 @@ out/
 .env
 .env.local
 
+# tools
+.claude/
+.serena/
+.superpowers/
+
+# misc
 reference-pawside/
+docs/
+tsconfig.tsbuildinfo
+hello.txt
+test.txt
+test-results.md
+test-results.txt
+mcp-test-results.md
+MCP_TEST_RESULTS.md
 
 # OS / editor
 .DS_Store
 .vscode/
 *.log
-.next
