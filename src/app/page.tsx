@@ -91,10 +91,8 @@ const faqs = [
 ]
 
 const categoryLabel: Record<Service["category"], string> = {
-  care: "Daily care",
-  training: "Training",
-  transport: "Transport",
-  farewell: "End of life",
+  adult: "Adult Dentistry",
+  kids: "Kids Dentistry",
 }
 
 export default function HomePage() {

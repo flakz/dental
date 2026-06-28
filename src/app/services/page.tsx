@@ -14,12 +14,10 @@ export const metadata: Metadata = {
 }
 
 const categoryLabel: Record<Service["category"], string> = {
-  care: "Daily care",
-  training: "Training",
-  transport: "Transport",
-  farewell: "End of life",
+  adult: "Adult Dentistry",
+  kids: "Kids Dentistry",
 }
-const categoryOrder: Service["category"][] = ["care", "training", "transport", "farewell"]
+const categoryOrder: Service["category"][] = ["adult", "kids"]
 
 export default function ServicesPage() {
   const grouped = categoryOrder.map((c) => ({
