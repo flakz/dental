@@ -34,7 +34,7 @@ export const images = {
   smileDesign:{ file: PLACEHOLDER, alt: 'Digital smile design software showing a smile preview', credit: 'Microsmiles Dental' },
 
   // Decorative
-  kitten:          { file: 'hero-dental.webp', alt: 'Modern dental clinic interior', credit: 'Benyamin Bohlouli / Unsplash' },
+  kitten:          { file: 'service-retainer.webp', alt: 'Custom dental retainer', credit: 'Unsplash' },
   clinicInterior:  { file: 'clinic-reception.webp', alt: 'Dental clinic reception area with modern design', credit: 'Harold Hisona / Unsplash' },
   consultation:    { file: 'service-root-canal.webp', alt: 'Dental consultation with a doctor', credit: 'SoyBreno / Unsplash' },
   tour:            { file: 'clinic-reception.webp', alt: 'Dental clinic reception area', credit: 'Harold Hisona / Unsplash' },
