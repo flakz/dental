@@ -245,7 +245,7 @@ export default function HomePage() {
           {/* Text — first in HTML for mobile order */}
           <div className="lg:col-start-2 lg:row-start-1">
             <Reveal variant="blurReveal">
-              <p className="eyebrow">Why Microsmiles</p>
+              <p className="eyebrow">Why Us</p>
               <h2 className="mt-5 font-display text-[clamp(2rem,3vw+1rem,3.25rem)] font-normal leading-[1.05] tracking-[-0.022em]">
                 Led by specialists, <span className="serif-italic text-primary font-semibold">built for comfort.</span>
               </h2>
